@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 }
 
 const difficultyColors: Record<string, string> = {
-  beginner: 'bg-green-500/10 text-green-400 border-green-500/20',
-  intermediate: 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20',
-  advanced: 'bg-red-500/10 text-red-400 border-red-500/20',
+  beginner: 'bg-green-50 text-green-700 border-green-200',
+  intermediate: 'bg-yellow-50 text-yellow-700 border-yellow-200',
+  advanced: 'bg-red-50 text-red-700 border-red-200',
 }
 
 export default function StacksPage() {
@@ -31,10 +31,10 @@ export default function StacksPage() {
           <Link
             key={stack.slug}
             href={`/stacks/${stack.slug}`}
-            className="group rounded-xl border border-border bg-[var(--card)] p-6 transition-all hover:border-cyan-500/30 hover:bg-[var(--card-hover)]"
+            className="group rounded-xl border border-border bg-card p-6 transition-all hover:border-accent hover:bg-card-hover"
           >
             <div className="flex items-start justify-between gap-2">
-              <h2 className="text-base font-semibold text-foreground group-hover:text-cyan-400 transition-colors">
+              <h2 className="text-base font-semibold text-primary group-hover:text-accent transition-colors">
                 {stack.name}
               </h2>
               <span className={`flex-shrink-0 inline-flex items-center rounded-full border px-2 py-0.5 text-xs ${difficultyColors[stack.difficulty]}`}>

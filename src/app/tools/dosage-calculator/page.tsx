@@ -55,7 +55,7 @@ export default function DosageCalculatorPage() {
         water volume, and target dose.
       </p>
 
-      <div className="mt-8 rounded-xl border border-border bg-[var(--card)] p-6">
+      <div className="mt-8 rounded-xl border border-border bg-card p-6">
         <div className="grid gap-6 sm:grid-cols-2">
           {/* Peptide amount */}
           <div>
@@ -67,12 +67,12 @@ export default function DosageCalculatorPage() {
                 onChange={(e) => setPeptideAmount(e.target.value)}
                 min="0"
                 step="0.1"
-                className="flex-1 rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                className="flex-1 rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
               />
               <select
                 value={peptideUnit}
                 onChange={(e) => setPeptideUnit(e.target.value as 'mg' | 'mcg')}
-                className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:border-cyan-500 focus:outline-none"
+                className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none"
               >
                 <option value="mg">mg</option>
                 <option value="mcg">mcg</option>
@@ -90,7 +90,7 @@ export default function DosageCalculatorPage() {
                 onChange={(e) => setBacWater(e.target.value)}
                 min="0"
                 step="0.1"
-                className="flex-1 rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                className="flex-1 rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
               />
               <span className="flex items-center rounded-lg border border-border bg-background px-3 py-2 text-sm text-muted">
                 mL
@@ -108,12 +108,12 @@ export default function DosageCalculatorPage() {
                 onChange={(e) => setDesiredDose(e.target.value)}
                 min="0"
                 step="1"
-                className="flex-1 rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                className="flex-1 rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
               />
               <select
                 value={doseUnit}
                 onChange={(e) => setDoseUnit(e.target.value as 'mcg' | 'mg')}
-                className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:border-cyan-500 focus:outline-none"
+                className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none"
               >
                 <option value="mcg">mcg</option>
                 <option value="mg">mg</option>
@@ -127,7 +127,7 @@ export default function DosageCalculatorPage() {
             <select
               value={syringeSize}
               onChange={(e) => setSyringeSize(e.target.value as '100' | '50' | '30')}
-              className="mt-1.5 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:border-cyan-500 focus:outline-none"
+              className="mt-1.5 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none"
             >
               <option value="100">1 mL (100 unit / U-100)</option>
               <option value="50">0.5 mL (50 unit / U-50)</option>
@@ -138,7 +138,7 @@ export default function DosageCalculatorPage() {
 
         <button
           onClick={calculate}
-          className="mt-6 w-full rounded-lg bg-cyan-500 px-6 py-3 text-sm font-medium text-black transition-colors hover:bg-cyan-400"
+          className="mt-6 w-full rounded-lg bg-cta px-6 py-3 text-sm font-medium text-cta-foreground transition-colors hover:bg-cta-hover"
         >
           Calculate
         </button>
@@ -146,7 +146,7 @@ export default function DosageCalculatorPage() {
 
       {/* Results */}
       {result && (
-        <div className="mt-6 rounded-xl border border-cyan-500/20 bg-cyan-500/5 p-6">
+        <div className="mt-6 rounded-xl border border-accent/20 bg-soft-sky/30 p-6">
           <h2 className="text-lg font-semibold text-foreground">Your dosage</h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
             <div>
@@ -157,7 +157,7 @@ export default function DosageCalculatorPage() {
             </div>
             <div>
               <p className="text-xs text-muted uppercase tracking-wider">Volume to inject</p>
-              <p className="mt-1 text-xl font-bold text-cyan-400">
+              <p className="mt-1 text-xl font-bold text-accent">
                 {result.doseVolume.toFixed(3)} mL
               </p>
             </div>
@@ -203,8 +203,8 @@ export default function DosageCalculatorPage() {
       </div>
 
       {/* Disclaimer */}
-      <div className="mt-8 rounded-xl border border-amber-500/20 bg-amber-500/5 p-5">
-        <p className="text-xs text-amber-200/80">
+      <div className="mt-8 rounded-xl border border-warm-sand bg-[#FEF9EC] p-5">
+        <p className="text-xs text-[#6B5A40]">
           <span className="font-medium">Disclaimer:</span> This calculator is for educational reference only. Always
           verify your calculations and consult with a healthcare provider for proper dosing. Errors in peptide
           reconstitution can lead to incorrect dosing.

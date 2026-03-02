@@ -23,9 +23,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 }
 
 const difficultyColors: Record<string, string> = {
-  beginner: 'bg-green-500/10 text-green-400 border-green-500/20',
-  intermediate: 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20',
-  advanced: 'bg-red-500/10 text-red-400 border-red-500/20',
+  beginner: 'bg-green-50 text-green-700 border-green-200',
+  intermediate: 'bg-yellow-50 text-yellow-700 border-yellow-200',
+  advanced: 'bg-red-50 text-red-700 border-red-200',
 }
 
 export default function StackDetailPage({ params }: { params: { slug: string } }) {
@@ -55,7 +55,7 @@ export default function StackDetailPage({ params }: { params: { slug: string } }
 
         {/* Quick stats */}
         <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          <div className="rounded-xl border border-border bg-[var(--card)] p-4">
+          <div className="rounded-xl border border-border bg-card p-4">
             <p className="text-xs text-muted uppercase tracking-wider">Difficulty</p>
             <p className="mt-1">
               <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium ${difficultyColors[stack.difficulty]}`}>
@@ -63,15 +63,15 @@ export default function StackDetailPage({ params }: { params: { slug: string } }
               </span>
             </p>
           </div>
-          <div className="rounded-xl border border-border bg-[var(--card)] p-4">
+          <div className="rounded-xl border border-border bg-card p-4">
             <p className="text-xs text-muted uppercase tracking-wider">Est. Cost</p>
             <p className="mt-1 text-sm font-medium text-foreground">{stack.estimatedMonthlyCost}</p>
           </div>
-          <div className="rounded-xl border border-border bg-[var(--card)] p-4">
+          <div className="rounded-xl border border-border bg-card p-4">
             <p className="text-xs text-muted uppercase tracking-wider">Duration</p>
             <p className="mt-1 text-sm font-medium text-foreground">{stack.duration}</p>
           </div>
-          <div className="rounded-xl border border-border bg-[var(--card)] p-4">
+          <div className="rounded-xl border border-border bg-card p-4">
             <p className="text-xs text-muted uppercase tracking-wider">Peptides</p>
             <p className="mt-1 text-sm font-medium text-foreground">{stack.peptides.length} compounds</p>
           </div>
@@ -95,10 +95,10 @@ export default function StackDetailPage({ params }: { params: { slug: string } }
                 {stack.peptides.map((entry, i) => {
                   const peptide = getPeptide(entry.peptide)
                   return (
-                    <tr key={i} className={i % 2 === 0 ? 'bg-white/[0.02]' : ''}>
+                    <tr key={i} className={i % 2 === 0 ? 'bg-pearl/50' : ''}>
                       <td className="px-4 py-3 text-sm">
                         {peptide ? (
-                          <Link href={`/peptides/${peptide.slug}`} className="text-cyan-400 hover:text-cyan-300">
+                          <Link href={`/peptides/${peptide.slug}`} className="text-accent hover:text-accent-hover">
                             {peptide.name}
                           </Link>
                         ) : (
@@ -120,7 +120,7 @@ export default function StackDetailPage({ params }: { params: { slug: string } }
         {/* Notes */}
         <section className="mt-10">
           <h2 className="text-xl font-semibold text-foreground">Notes</h2>
-          <div className="mt-4 rounded-xl border border-border bg-[var(--card)] p-5">
+          <div className="mt-4 rounded-xl border border-border bg-card p-5">
             <p className="text-sm text-muted leading-relaxed">{stack.notes}</p>
           </div>
         </section>
@@ -135,7 +135,7 @@ export default function StackDetailPage({ params }: { params: { slug: string } }
                   <Link
                     key={goal.slug}
                     href={`/goals/${goal.slug}`}
-                    className="rounded-full border border-border px-3 py-1 text-sm text-muted transition-colors hover:border-cyan-500/30 hover:text-cyan-400"
+                    className="rounded-full border border-border px-3 py-1 text-sm text-muted transition-colors hover:border-accent hover:text-accent"
                   >
                     {goal.name}
                   </Link>
@@ -156,9 +156,9 @@ export default function StackDetailPage({ params }: { params: { slug: string } }
                 <Link
                   key={s.slug}
                   href={`/stacks/${s.slug}`}
-                  className="rounded-xl border border-border bg-[var(--card)] p-4 transition-all hover:border-cyan-500/30"
+                  className="rounded-xl border border-border bg-card p-4 transition-all hover:border-accent"
                 >
-                  <p className="text-sm font-medium text-foreground">{s.name}</p>
+                  <p className="text-sm font-medium text-primary">{s.name}</p>
                   <p className="mt-1 text-xs text-muted">{s.difficulty} — {s.estimatedMonthlyCost}</p>
                 </Link>
               ))}
@@ -173,8 +173,8 @@ export default function StackDetailPage({ params }: { params: { slug: string } }
           <AuthorBio />
         </div>
 
-        <div className="mt-6 rounded-xl border border-amber-500/20 bg-amber-500/5 p-5">
-          <p className="text-xs text-amber-200/80">
+        <div className="mt-6 rounded-xl border border-warm-sand bg-[#FEF9EC] p-5">
+          <p className="text-xs text-[#6B5A40]">
             <span className="font-medium">Medical Disclaimer:</span> Peptide stacks are not FDA-approved protocols.
             This information is for educational purposes only. Consult a qualified healthcare provider before combining
             any peptides.

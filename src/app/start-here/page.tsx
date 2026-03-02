@@ -80,36 +80,36 @@ export default function StartHerePage() {
         <div className="mt-6 grid gap-3 sm:grid-cols-2">
           <Link
             href="/peptides"
-            className="group rounded-xl border border-border bg-[var(--card)] p-5 transition-all hover:border-cyan-500/30"
+            className="group rounded-xl border border-border bg-card p-5 transition-all hover:border-accent"
           >
-            <h3 className="font-semibold text-foreground group-hover:text-cyan-400 transition-colors">
+            <h3 className="font-semibold text-primary group-hover:text-accent transition-colors">
               Browse all 40 peptides
             </h3>
             <p className="mt-1 text-sm text-muted">Detailed profiles with research, dosing, and FAQ.</p>
           </Link>
           <Link
             href="/goals"
-            className="group rounded-xl border border-border bg-[var(--card)] p-5 transition-all hover:border-cyan-500/30"
+            className="group rounded-xl border border-border bg-card p-5 transition-all hover:border-accent"
           >
-            <h3 className="font-semibold text-foreground group-hover:text-cyan-400 transition-colors">
+            <h3 className="font-semibold text-primary group-hover:text-accent transition-colors">
               Find by goal
             </h3>
             <p className="mt-1 text-sm text-muted">Weight loss, healing, anti-aging, sleep, and more.</p>
           </Link>
           <Link
             href="/compare"
-            className="group rounded-xl border border-border bg-[var(--card)] p-5 transition-all hover:border-cyan-500/30"
+            className="group rounded-xl border border-border bg-card p-5 transition-all hover:border-accent"
           >
-            <h3 className="font-semibold text-foreground group-hover:text-cyan-400 transition-colors">
+            <h3 className="font-semibold text-primary group-hover:text-accent transition-colors">
               Compare peptides
             </h3>
             <p className="mt-1 text-sm text-muted">Side-by-side analysis to help you decide.</p>
           </Link>
           <Link
             href="/tools/dosage-calculator"
-            className="group rounded-xl border border-border bg-[var(--card)] p-5 transition-all hover:border-cyan-500/30"
+            className="group rounded-xl border border-border bg-card p-5 transition-all hover:border-accent"
           >
-            <h3 className="font-semibold text-foreground group-hover:text-cyan-400 transition-colors">
+            <h3 className="font-semibold text-primary group-hover:text-accent transition-colors">
               Dosage calculator
             </h3>
             <p className="mt-1 text-sm text-muted">Calculate reconstitution and injection volumes.</p>

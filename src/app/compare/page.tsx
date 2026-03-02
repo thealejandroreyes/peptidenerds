@@ -43,16 +43,16 @@ export default function ComparePage() {
           <Link
             key={comp.slug}
             href={`/compare/${comp.slug}`}
-            className="group rounded-xl border border-border bg-[var(--card)] p-5 transition-all hover:border-cyan-500/30 hover:bg-[var(--card-hover)]"
+            className="group rounded-xl border border-border bg-card p-5 transition-all hover:border-accent hover:bg-card-hover"
           >
-            <h2 className="text-sm font-semibold text-foreground group-hover:text-cyan-400 transition-colors">
+            <h2 className="text-sm font-semibold text-primary group-hover:text-accent transition-colors">
               {comp.title}
             </h2>
             <p className="mt-2 text-xs text-muted line-clamp-3">{comp.metaDescription}</p>
             <div className="mt-3 flex items-center gap-2">
-              <span className="text-xs text-cyan-400">{comp.dimensions.length} dimensions compared</span>
+              <span className="text-xs text-accent">{comp.dimensions.length} dimensions compared</span>
               {comp.winner && (
-                <span className="rounded-full bg-green-500/10 border border-green-500/20 px-2 py-0.5 text-xs text-green-400">
+                <span className="rounded-full bg-green-50 border border-green-200 px-2 py-0.5 text-xs text-green-700">
                   Winner: {comp.winner}
                 </span>
               )}
@@ -70,16 +70,16 @@ export default function ComparePage() {
               <Link
                 key={comp.slug}
                 href={`/compare/${comp.slug}`}
-                className="group rounded-xl border border-border bg-[var(--card)] p-5 transition-all hover:border-cyan-500/30 hover:bg-[var(--card-hover)]"
+                className="group rounded-xl border border-border bg-card p-5 transition-all hover:border-accent hover:bg-card-hover"
               >
-                <h2 className="text-sm font-semibold text-foreground group-hover:text-cyan-400 transition-colors">
+                <h2 className="text-sm font-semibold text-primary group-hover:text-accent transition-colors">
                   {comp.title}
                 </h2>
                 <p className="mt-2 text-xs text-muted line-clamp-3">{comp.metaDescription}</p>
                 <div className="mt-3 flex items-center gap-2">
-                  <span className="text-xs text-cyan-400">{comp.dimensions.length} dimensions compared</span>
+                  <span className="text-xs text-accent">{comp.dimensions.length} dimensions compared</span>
                   {comp.winner && (
-                    <span className="rounded-full bg-green-500/10 border border-green-500/20 px-2 py-0.5 text-xs text-green-400">
+                    <span className="rounded-full bg-green-50 border border-green-200 px-2 py-0.5 text-xs text-green-700">
                       Winner: {comp.winner}
                     </span>
                   )}

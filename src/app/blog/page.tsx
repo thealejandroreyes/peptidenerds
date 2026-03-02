@@ -34,7 +34,7 @@ export default function BlogPage() {
       </p>
 
       {posts.length === 0 ? (
-        <div className="mt-12 rounded-xl border border-border bg-[var(--card)] p-10 text-center">
+        <div className="mt-12 rounded-xl border border-border bg-card p-10 text-center">
           <p className="text-lg font-semibold text-foreground">Articles are coming soon</p>
           <p className="mt-2 text-sm text-muted">
             We are building out the research library. Subscribe to get notified when new articles drop.
@@ -46,14 +46,14 @@ export default function BlogPage() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="block rounded-xl border border-border p-6 transition-colors hover:border-cyan-500/30 hover:bg-[var(--card)]"
+              className="block rounded-xl border border-border p-6 transition-colors hover:border-accent hover:bg-card"
             >
               <div className="flex flex-wrap items-center gap-2 text-xs text-muted">
                 <time dateTime={post.date}>{formatDate(post.date)}</time>
                 {post.pillar && (
                   <>
                     <span className="text-border">&middot;</span>
-                    <span className="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-2 py-0.5 text-cyan-400">
+                    <span className="rounded-full border border-accent/20 bg-soft-sky px-2 py-0.5 text-accent">
                       {pillarLabels[post.pillar] || post.pillar}
                     </span>
                   </>

@@ -89,7 +89,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           {post.pillar && (
             <>
               <span className="text-border">&middot;</span>
-              <span className="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-2 py-0.5 text-cyan-400">
+              <span className="rounded-full border border-accent/20 bg-soft-sky px-2 py-0.5 text-accent">
                 {pillarLabels[post.pillar] || post.pillar}
               </span>
             </>
@@ -128,7 +128,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 <Link
                   key={r.slug}
                   href={`/blog/${r.slug}`}
-                  className="block rounded-lg border border-border p-4 transition-colors hover:border-cyan-500/30 hover:bg-[var(--card)]"
+                  className="block rounded-lg border border-border p-4 transition-colors hover:border-accent hover:bg-card"
                 >
                   <p className="font-medium text-foreground">{r.title}</p>
                   <p className="mt-1 text-xs text-muted">

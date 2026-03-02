@@ -79,8 +79,8 @@ export default function PeptideDetailPage({ params }: { params: { slug: string }
         </div>
 
         {/* Key Takeaway */}
-        <div className="mt-6 rounded-xl border border-cyan-500/20 bg-cyan-500/5 p-5">
-          <p className="text-sm font-medium text-cyan-400">Key Takeaway</p>
+        <div className="mt-6 rounded-xl border border-accent/20 bg-soft-sky/30 p-5">
+          <p className="text-sm font-medium text-accent">Key Takeaway</p>
           <p className="mt-2 text-sm text-foreground leading-relaxed">{peptide.description}</p>
         </div>
 
@@ -96,7 +96,7 @@ export default function PeptideDetailPage({ params }: { params: { slug: string }
           <ul className="mt-3 space-y-2">
             {peptide.benefits.map((b, i) => (
               <li key={i} className="flex items-start gap-2 text-sm text-muted">
-                <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-cyan-400" />
+                <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
                 {b}
               </li>
             ))}
@@ -119,7 +119,7 @@ export default function PeptideDetailPage({ params }: { params: { slug: string }
         {/* Dosing */}
         <section className="mt-10">
           <h2 className="text-xl font-semibold text-foreground">Dosing protocol</h2>
-          <div className="mt-4 rounded-xl border border-border bg-[var(--card)] p-5">
+          <div className="mt-4 rounded-xl border border-border bg-card p-5">
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <p className="text-xs font-medium text-muted uppercase tracking-wider">Typical Dose</p>
@@ -148,7 +148,7 @@ export default function PeptideDetailPage({ params }: { params: { slug: string }
             <h2 className="text-xl font-semibold text-foreground">Key research</h2>
             <div className="mt-4 space-y-4">
               {peptide.research.keyStudies.map((study, i) => (
-                <div key={i} className="rounded-xl border border-border bg-[var(--card)] p-5">
+                <div key={i} className="rounded-xl border border-border bg-card p-5">
                   <h3 className="text-sm font-medium text-foreground">{study.title}</h3>
                   <p className="mt-1 text-xs text-muted">
                     {study.journal} ({study.year})
@@ -159,7 +159,7 @@ export default function PeptideDetailPage({ params }: { params: { slug: string }
                           href={`https://pubmed.ncbi.nlm.nih.gov/${study.pmid}/`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-cyan-400 hover:text-cyan-300"
+                          className="text-accent hover:text-accent-hover"
                         >
                           PubMed
                         </a>
@@ -202,9 +202,9 @@ export default function PeptideDetailPage({ params }: { params: { slug: string }
                 <Link
                   key={comp.slug}
                   href={`/compare/${comp.slug}`}
-                  className="rounded-xl border border-border bg-[var(--card)] p-4 transition-all hover:border-cyan-500/30"
+                  className="rounded-xl border border-border bg-card p-4 transition-all hover:border-accent"
                 >
-                  <p className="text-sm font-medium text-foreground">{comp.title}</p>
+                  <p className="text-sm font-medium text-primary">{comp.title}</p>
                 </Link>
               ))}
             </div>
@@ -220,9 +220,9 @@ export default function PeptideDetailPage({ params }: { params: { slug: string }
                 <Link
                   key={stack.slug}
                   href={`/stacks/${stack.slug}`}
-                  className="rounded-xl border border-border bg-[var(--card)] p-4 transition-all hover:border-cyan-500/30"
+                  className="rounded-xl border border-border bg-card p-4 transition-all hover:border-accent"
                 >
-                  <p className="text-sm font-medium text-foreground">{stack.name}</p>
+                  <p className="text-sm font-medium text-primary">{stack.name}</p>
                   <p className="mt-1 text-xs text-muted">{stack.difficulty} — {stack.estimatedMonthlyCost}</p>
                 </Link>
               ))}
@@ -239,7 +239,7 @@ export default function PeptideDetailPage({ params }: { params: { slug: string }
                 <Link
                   key={goal.slug}
                   href={`/goals/${goal.slug}`}
-                  className="rounded-full border border-border px-3 py-1 text-sm text-muted transition-colors hover:border-cyan-500/30 hover:text-cyan-400"
+                  className="rounded-full border border-border px-3 py-1 text-sm text-muted transition-colors hover:border-accent hover:text-accent"
                 >
                   {goal.name}
                 </Link>
@@ -258,7 +258,7 @@ export default function PeptideDetailPage({ params }: { params: { slug: string }
                   <Link
                     key={rp.slug}
                     href={`/peptides/${rp.slug}`}
-                    className="rounded-full border border-border px-3 py-1 text-sm text-muted transition-colors hover:border-cyan-500/30 hover:text-cyan-400"
+                    className="rounded-full border border-border px-3 py-1 text-sm text-muted transition-colors hover:border-accent hover:text-accent"
                   >
                     {rp.name}
                   </Link>
@@ -270,15 +270,15 @@ export default function PeptideDetailPage({ params }: { params: { slug: string }
 
         {/* Weight loss internal link — on every page (solar system: all planets link to sun) */}
         {peptide.category !== 'glp1-weight-loss' && (
-          <section className="mt-10 rounded-xl border border-cyan-500/10 bg-cyan-500/5 p-5">
+          <section className="mt-10 rounded-xl border border-accent/10 bg-soft-sky/30 p-5">
             <p className="text-sm text-foreground">
               <span className="font-medium">Looking for weight loss peptides?</span>{' '}
               See our complete guide to the{' '}
-              <Link href="/goals/weight-loss" className="text-cyan-400 hover:text-cyan-300">
+              <Link href="/goals/weight-loss" className="text-accent hover:text-accent-hover">
                 best peptides for weight loss
               </Link>
               {' '}or compare{' '}
-              <Link href="/compare/semaglutide-vs-tirzepatide" className="text-cyan-400 hover:text-cyan-300">
+              <Link href="/compare/semaglutide-vs-tirzepatide" className="text-accent hover:text-accent-hover">
                 semaglutide vs tirzepatide
               </Link>
               .
@@ -292,8 +292,8 @@ export default function PeptideDetailPage({ params }: { params: { slug: string }
         </div>
 
         {/* Medical Disclaimer */}
-        <div className="mt-8 rounded-xl border border-amber-500/20 bg-amber-500/5 p-5">
-          <p className="text-xs text-amber-200/80">
+        <div className="mt-8 rounded-xl border border-warm-sand bg-[#FEF9EC] p-5">
+          <p className="text-xs text-[#6B5A40]">
             <span className="font-medium">Medical Disclaimer:</span> This content is for informational and educational
             purposes only. It is not intended as medical advice or a substitute for professional medical consultation,
             diagnosis, or treatment. Always consult a qualified healthcare provider before starting any peptide protocol.

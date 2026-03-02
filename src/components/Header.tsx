@@ -16,11 +16,11 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-primary bg-primary backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold text-foreground">
-            Peptide<span className="text-cyan-400">Nerds</span>
+          <span className="text-xl font-bold text-white">
+            Peptide<span className="text-sage">Nerds</span>
           </span>
         </Link>
 
@@ -30,7 +30,7 @@ export function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm text-muted transition-colors hover:text-foreground"
+              className="text-sm text-white/75 transition-colors hover:text-white"
             >
               {item.name}
             </Link>
@@ -40,7 +40,7 @@ export function Header() {
         {/* Mobile menu button */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden p-2 text-muted hover:text-foreground"
+          className="md:hidden p-2 text-white/75 hover:text-white"
           aria-label="Toggle menu"
         >
           <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -55,13 +55,13 @@ export function Header() {
 
       {/* Mobile nav */}
       {mobileOpen && (
-        <nav className="border-t border-border bg-background px-4 py-4 md:hidden">
+        <nav className="border-t border-white/10 bg-primary px-4 py-4 md:hidden">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
               onClick={() => setMobileOpen(false)}
-              className="block py-2 text-sm text-muted transition-colors hover:text-foreground"
+              className="block py-2 text-sm text-white/75 transition-colors hover:text-white"
             >
               {item.name}
             </Link>

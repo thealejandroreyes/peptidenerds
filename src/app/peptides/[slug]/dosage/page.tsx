@@ -58,13 +58,13 @@ export default function DosagePage({ params }: { params: { slug: string } }) {
         </div>
 
         <div className="prose-custom mt-8">
-          <div className="rounded-lg border border-amber-500/20 bg-amber-500/5 p-4 text-sm text-muted">
+          <div className="rounded-lg border border-warm-sand bg-[#FEF9EC] p-4 text-sm text-muted">
             <strong className="text-foreground">Not medical advice.</strong> Dosage information is provided for educational purposes based on published research.{' '}
             {peptide.fdaStatus === 'research-only'
               ? 'This compound is not FDA-approved for human use. '
               : ''}
             Always consult a qualified healthcare provider before starting any protocol.{' '}
-            <Link href="/disclaimer" className="text-cyan-400 hover:text-cyan-300">Full disclaimer</Link>.
+            <Link href="/disclaimer" className="text-accent hover:text-accent-hover">Full disclaimer</Link>.
           </div>
 
           <h2>Dosage overview</h2>
@@ -73,16 +73,16 @@ export default function DosagePage({ params }: { params: { slug: string } }) {
             <table className="w-full text-sm">
               <tbody>
                 <tr className="border-b border-border">
-                  <td className="px-4 py-3 font-medium text-foreground bg-[var(--card)]">Typical dose</td>
+                  <td className="px-4 py-3 font-medium text-foreground bg-card">Typical dose</td>
                   <td className="px-4 py-3">{peptide.dosing.typical}</td>
                 </tr>
                 <tr className="border-b border-border">
-                  <td className="px-4 py-3 font-medium text-foreground bg-[var(--card)]">Frequency</td>
+                  <td className="px-4 py-3 font-medium text-foreground bg-card">Frequency</td>
                   <td className="px-4 py-3">{peptide.dosing.frequency}</td>
                 </tr>
                 {peptide.dosing.cycleLength && (
                   <tr className="border-b border-border">
-                    <td className="px-4 py-3 font-medium text-foreground bg-[var(--card)]">Cycle length</td>
+                    <td className="px-4 py-3 font-medium text-foreground bg-card">Cycle length</td>
                     <td className="px-4 py-3">{peptide.dosing.cycleLength}</td>
                   </tr>
                 )}
@@ -122,7 +122,7 @@ export default function DosagePage({ params }: { params: { slug: string } }) {
                   <li key={i}>
                     {study.title} — <em>{study.journal}</em> ({study.year})
                     {study.pmid && (
-                      <> [<a href={`https://pubmed.ncbi.nlm.nih.gov/${study.pmid}/`} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">PubMed</a>]</>
+                      <> [<a href={`https://pubmed.ncbi.nlm.nih.gov/${study.pmid}/`} target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent-hover">PubMed</a>]</>
                     )}
                   </li>
                 ))}
@@ -132,22 +132,22 @@ export default function DosagePage({ params }: { params: { slug: string } }) {
         </div>
 
         <div className="mt-8 flex flex-wrap gap-2">
-          <Link href={`/peptides/${peptide.slug}`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-cyan-500/30">
+          <Link href={`/peptides/${peptide.slug}`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
             Overview
           </Link>
-          <Link href={`/peptides/${peptide.slug}/benefits`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-cyan-500/30">
+          <Link href={`/peptides/${peptide.slug}/benefits`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
             Benefits
           </Link>
-          <Link href={`/peptides/${peptide.slug}/side-effects`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-cyan-500/30">
+          <Link href={`/peptides/${peptide.slug}/side-effects`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
             Side Effects
           </Link>
-          <Link href={`/peptides/${peptide.slug}/faq`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-cyan-500/30">
+          <Link href={`/peptides/${peptide.slug}/faq`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
             FAQ
           </Link>
         </div>
 
         <div className="mt-6 text-center">
-          <Link href="/tools/dosage-calculator" className="inline-block rounded-lg bg-cyan-500 px-6 py-3 text-sm font-medium text-black hover:bg-cyan-400">
+          <Link href="/tools/dosage-calculator" className="inline-block rounded-lg bg-cta px-6 py-3 text-sm font-medium text-cta-foreground hover:bg-cta-hover">
             Use the Dosage Calculator
           </Link>
         </div>

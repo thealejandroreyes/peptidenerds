@@ -37,13 +37,13 @@ export function getCategoryLabel(category: string): string {
 
 export function getCategoryColor(category: string): string {
   const colors: Record<string, string> = {
-    'glp1-weight-loss': 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
-    'healing-recovery': 'bg-blue-500/10 text-blue-400 border-blue-500/20',
-    'gh-secretagogue': 'bg-purple-500/10 text-purple-400 border-purple-500/20',
-    'anti-aging': 'bg-amber-500/10 text-amber-400 border-amber-500/20',
-    'nootropic': 'bg-cyan-500/10 text-cyan-400 border-cyan-500/20',
-    'metabolic': 'bg-orange-500/10 text-orange-400 border-orange-500/20',
-    'other': 'bg-gray-500/10 text-gray-400 border-gray-500/20',
+    'glp1-weight-loss': 'bg-soft-sky text-accent border-accent/20',
+    'healing-recovery': 'bg-blue-50 text-blue-700 border-blue-200',
+    'gh-secretagogue': 'bg-purple-50 text-purple-700 border-purple-200',
+    'anti-aging': 'bg-amber-50 text-amber-700 border-amber-200',
+    'nootropic': 'bg-soft-sky text-accent border-accent/20',
+    'metabolic': 'bg-orange-50 text-orange-700 border-orange-200',
+    'other': 'bg-pearl text-muted border-border',
   }
   return colors[category] || colors.other
 }
@@ -59,9 +59,9 @@ export function getFdaStatusLabel(status: string): string {
 
 export function getFdaStatusColor(status: string): string {
   const colors: Record<string, string> = {
-    'approved': 'bg-green-500/10 text-green-400 border-green-500/20',
-    'clinical-trials': 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20',
-    'research-only': 'bg-gray-500/10 text-gray-400 border-gray-500/20',
+    'approved': 'bg-[#E8F4F2] text-[#1A4A4A] border-sage',
+    'clinical-trials': 'bg-[#FEF3C7] text-[#92400E] border-amber-300',
+    'research-only': 'bg-pearl text-muted border-border',
   }
   return colors[status] || colors['research-only']
 }

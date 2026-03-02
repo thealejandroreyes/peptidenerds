@@ -64,9 +64,9 @@ export default function BenefitsPage({ params }: { params: { slug: string } }) {
         </div>
 
         <div className="prose-custom mt-8">
-          <div className="rounded-lg border border-amber-500/20 bg-amber-500/5 p-4 text-sm text-muted">
+          <div className="rounded-lg border border-warm-sand bg-[#FEF9EC] p-4 text-sm text-muted">
             <strong className="text-foreground">Not medical advice.</strong> This content is for educational purposes only. Consult a healthcare provider before starting any peptide protocol.{' '}
-            <Link href="/disclaimer" className="text-cyan-400 hover:text-cyan-300">Full disclaimer</Link>.
+            <Link href="/disclaimer" className="text-accent hover:text-accent-hover">Full disclaimer</Link>.
           </div>
 
           <h2>How {peptide.name} works</h2>
@@ -91,7 +91,7 @@ export default function BenefitsPage({ params }: { params: { slug: string } }) {
                   <p className="text-xs text-muted mt-1">
                     {study.journal}, {study.year}
                     {study.pmid && (
-                      <> &middot; <a href={`https://pubmed.ncbi.nlm.nih.gov/${study.pmid}/`} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">PMID: {study.pmid}</a></>
+                      <> &middot; <a href={`https://pubmed.ncbi.nlm.nih.gov/${study.pmid}/`} target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent-hover">PMID: {study.pmid}</a></>
                     )}
                   </p>
                   <p className="text-sm mt-2">{study.keyFinding}</p>
@@ -107,16 +107,16 @@ export default function BenefitsPage({ params }: { params: { slug: string } }) {
         </div>
 
         <div className="mt-8 flex flex-wrap gap-2">
-          <Link href={`/peptides/${peptide.slug}`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-cyan-500/30">
+          <Link href={`/peptides/${peptide.slug}`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
             Overview
           </Link>
-          <Link href={`/peptides/${peptide.slug}/dosage`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-cyan-500/30">
+          <Link href={`/peptides/${peptide.slug}/dosage`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
             Dosage
           </Link>
-          <Link href={`/peptides/${peptide.slug}/side-effects`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-cyan-500/30">
+          <Link href={`/peptides/${peptide.slug}/side-effects`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
             Side Effects
           </Link>
-          <Link href={`/peptides/${peptide.slug}/faq`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-cyan-500/30">
+          <Link href={`/peptides/${peptide.slug}/faq`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
             FAQ
           </Link>
         </div>
@@ -126,8 +126,8 @@ export default function BenefitsPage({ params }: { params: { slug: string } }) {
             <h2 className="text-lg font-bold text-foreground">Related peptides</h2>
             <div className="mt-3 grid gap-2">
               {relatedPeptides.map((rp) => (
-                <Link key={rp!.slug} href={`/peptides/${rp!.slug}/benefits`} className="block rounded-lg border border-border p-3 text-sm hover:border-cyan-500/30">
-                  <span className="font-medium text-foreground">{rp!.name}</span>
+                <Link key={rp!.slug} href={`/peptides/${rp!.slug}/benefits`} className="block rounded-lg border border-border p-3 text-sm hover:border-accent">
+                  <span className="font-medium text-primary">{rp!.name}</span>
                   <span className="text-muted"> — {rp!.benefits[0]}</span>
                 </Link>
               ))}

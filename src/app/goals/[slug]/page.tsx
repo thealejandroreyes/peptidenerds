@@ -51,8 +51,8 @@ export default function GoalDetailPage({ params }: { params: { slug: string } })
         <p className="mt-3 text-muted">{goal.description}</p>
 
         {/* Key considerations */}
-        <div className="mt-8 rounded-xl border border-cyan-500/20 bg-cyan-500/5 p-5">
-          <p className="text-sm font-medium text-cyan-400">What to know</p>
+        <div className="mt-8 rounded-xl border border-accent/20 bg-soft-sky/30 p-5">
+          <p className="text-sm font-medium text-accent">What to know</p>
           <p className="mt-2 text-sm text-foreground leading-relaxed">{goal.considerations}</p>
         </div>
 
@@ -75,9 +75,9 @@ export default function GoalDetailPage({ params }: { params: { slug: string } })
                 <Link
                   key={stack.slug}
                   href={`/stacks/${stack.slug}`}
-                  className="rounded-xl border border-border bg-[var(--card)] p-4 transition-all hover:border-cyan-500/30"
+                  className="rounded-xl border border-border bg-card p-4 transition-all hover:border-accent"
                 >
-                  <p className="text-sm font-medium text-foreground">{stack.name}</p>
+                  <p className="text-sm font-medium text-primary">{stack.name}</p>
                   <p className="mt-1 text-xs text-muted">{stack.difficulty} — {stack.estimatedMonthlyCost}</p>
                   <p className="mt-2 text-xs text-muted line-clamp-2">{stack.description}</p>
                 </Link>
@@ -94,7 +94,7 @@ export default function GoalDetailPage({ params }: { params: { slug: string } })
               <Link
                 key={g.slug}
                 href={`/goals/${g.slug}`}
-                className="rounded-full border border-border px-3 py-1 text-sm text-muted transition-colors hover:border-cyan-500/30 hover:text-cyan-400"
+                className="rounded-full border border-border px-3 py-1 text-sm text-muted transition-colors hover:border-accent hover:text-accent"
               >
                 {g.name}
               </Link>

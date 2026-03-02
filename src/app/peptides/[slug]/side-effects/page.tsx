@@ -60,7 +60,7 @@ export default function SideEffectsPage({ params }: { params: { slug: string } }
         <div className="prose-custom mt-8">
           <div className="rounded-lg border border-red-500/20 bg-red-500/5 p-4 text-sm text-muted">
             <strong className="text-foreground">Important safety information.</strong> This page covers known and reported side effects of {peptide.name}. This is not a complete list. Always discuss potential risks with your healthcare provider before starting any peptide protocol.{' '}
-            <Link href="/disclaimer" className="text-cyan-400 hover:text-cyan-300">Full medical disclaimer</Link>.
+            <Link href="/disclaimer" className="text-accent hover:text-accent-hover">Full medical disclaimer</Link>.
           </div>
 
           <h2>Known side effects</h2>
@@ -113,7 +113,7 @@ export default function SideEffectsPage({ params }: { params: { slug: string } }
                   <li key={i}>
                     {study.title} — <em>{study.journal}</em> ({study.year})
                     {study.pmid && (
-                      <> [<a href={`https://pubmed.ncbi.nlm.nih.gov/${study.pmid}/`} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300">PubMed</a>]</>
+                      <> [<a href={`https://pubmed.ncbi.nlm.nih.gov/${study.pmid}/`} target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent-hover">PubMed</a>]</>
                     )}
                   </li>
                 ))}
@@ -123,16 +123,16 @@ export default function SideEffectsPage({ params }: { params: { slug: string } }
         </div>
 
         <div className="mt-8 flex flex-wrap gap-2">
-          <Link href={`/peptides/${peptide.slug}`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-cyan-500/30">
+          <Link href={`/peptides/${peptide.slug}`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
             Overview
           </Link>
-          <Link href={`/peptides/${peptide.slug}/benefits`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-cyan-500/30">
+          <Link href={`/peptides/${peptide.slug}/benefits`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
             Benefits
           </Link>
-          <Link href={`/peptides/${peptide.slug}/dosage`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-cyan-500/30">
+          <Link href={`/peptides/${peptide.slug}/dosage`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
             Dosage
           </Link>
-          <Link href={`/peptides/${peptide.slug}/faq`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-cyan-500/30">
+          <Link href={`/peptides/${peptide.slug}/faq`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
             FAQ
           </Link>
         </div>

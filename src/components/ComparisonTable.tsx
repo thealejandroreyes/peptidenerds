@@ -9,14 +9,14 @@ export function ComparisonTable({ comparison }: { comparison: Comparison }) {
         <thead>
           <tr className="border-b border-border">
             <th className="px-4 py-3 text-left text-sm font-semibold text-foreground">Dimension</th>
-            <th className="px-4 py-3 text-center text-sm font-semibold text-cyan-400">
+            <th className="px-4 py-3 text-center text-sm font-semibold text-accent">
               {comparison.peptideA}
             </th>
-            <th className="px-4 py-3 text-center text-sm font-semibold text-purple-400">
+            <th className="px-4 py-3 text-center text-sm font-semibold text-purple-600">
               {comparison.peptideB}
             </th>
             {isTriple && (
-              <th className="px-4 py-3 text-center text-sm font-semibold text-amber-400">
+              <th className="px-4 py-3 text-center text-sm font-semibold text-amber-600">
                 {comparison.peptideC}
               </th>
             )}
@@ -25,7 +25,7 @@ export function ComparisonTable({ comparison }: { comparison: Comparison }) {
         </thead>
         <tbody>
           {comparison.dimensions.map((dim, i) => (
-            <tr key={dim.name} className={i % 2 === 0 ? 'bg-white/[0.02]' : ''}>
+            <tr key={dim.name} className={i % 2 === 0 ? 'bg-pearl/50' : ''}>
               <td className="px-4 py-3 text-sm font-medium text-foreground">{dim.name}</td>
               <td className="px-4 py-3 text-center text-sm text-muted">{dim.peptideAScore}</td>
               <td className="px-4 py-3 text-center text-sm text-muted">{dim.peptideBScore}</td>

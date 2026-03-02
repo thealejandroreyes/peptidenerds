@@ -29,34 +29,34 @@ export default function HomePage() {
       <OrganizationSchema />
 
       {/* Hero — weight loss first */}
-      <section className="relative overflow-hidden border-b border-border">
+      <section className="relative overflow-hidden bg-primary">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
           <div className="max-w-3xl">
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
               The peptide{' '}
-              <span className="text-cyan-400">weight loss</span>{' '}
+              <span className="text-sage">weight loss</span>{' '}
               guide
             </h1>
-            <p className="mt-6 text-lg text-muted leading-relaxed">
+            <p className="mt-6 text-lg text-white/70 leading-relaxed">
               Everything you need to know about GLP-1 peptides for weight loss. Compare semaglutide, tirzepatide,
               and retatrutide side by side. Research-backed dosing, side effects, cost breakdowns, and tools.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/goals/weight-loss"
-                className="rounded-lg bg-cyan-500 px-6 py-3 text-sm font-medium text-black transition-colors hover:bg-cyan-400"
+                className="rounded-lg bg-cta px-6 py-3 text-sm font-medium text-cta-foreground transition-colors hover:bg-cta-hover"
               >
                 Best peptides for weight loss
               </Link>
               <Link
                 href="/compare/semaglutide-vs-tirzepatide"
-                className="rounded-lg border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-cyan-500/30 hover:text-cyan-400"
+                className="rounded-lg border border-white/20 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-white/40 hover:text-white"
               >
                 Semaglutide vs Tirzepatide
               </Link>
               <Link
                 href="/tools/dosage-calculator"
-                className="rounded-lg border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-cyan-500/30 hover:text-cyan-400"
+                className="rounded-lg border border-white/20 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-white/40 hover:text-white"
               >
                 Dosage calculator
               </Link>
@@ -72,7 +72,7 @@ export default function HomePage() {
             <h2 className="text-2xl font-bold text-foreground">GLP-1 weight loss peptides</h2>
             <p className="mt-2 text-sm text-muted">The most effective peptides for significant weight loss, ranked by clinical evidence.</p>
           </div>
-          <Link href="/peptides" className="text-sm text-cyan-400 hover:text-cyan-300">
+          <Link href="/peptides" className="text-sm text-accent hover:text-accent-hover">
             View all peptides →
           </Link>
         </div>
@@ -93,9 +93,9 @@ export default function HomePage() {
               <Link
                 key={comp.slug}
                 href={`/compare/${comp.slug}`}
-                className="group rounded-xl border border-border bg-[var(--card)] p-5 transition-all hover:border-cyan-500/30"
+                className="group rounded-xl border border-border bg-card p-5 transition-all hover:border-accent"
               >
-                <h3 className="text-sm font-semibold text-foreground group-hover:text-cyan-400 transition-colors line-clamp-2">
+                <h3 className="text-sm font-semibold text-primary group-hover:text-accent transition-colors line-clamp-2">
                   {comp.title}
                 </h3>
                 <p className="mt-2 text-xs text-muted line-clamp-2">{comp.metaDescription}</p>
@@ -103,7 +103,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="mt-6 text-center">
-            <Link href="/compare" className="text-sm text-cyan-400 hover:text-cyan-300">
+            <Link href="/compare" className="text-sm text-accent hover:text-accent-hover">
               View all {comparisons.length} comparisons →
             </Link>
           </div>
@@ -135,16 +135,16 @@ export default function HomePage() {
               <Link
                 key={goal.slug}
                 href={`/goals/${goal.slug}`}
-                className="group rounded-xl border border-border bg-[var(--card)] p-5 transition-all hover:border-cyan-500/30"
+                className="group rounded-xl border border-border bg-card p-5 transition-all hover:border-accent"
               >
-                <h3 className="font-semibold text-foreground group-hover:text-cyan-400 transition-colors">{goal.name}</h3>
+                <h3 className="font-semibold text-primary group-hover:text-accent transition-colors">{goal.name}</h3>
                 <p className="mt-2 text-sm text-muted line-clamp-2">{goal.description}</p>
-                <p className="mt-3 text-xs text-cyan-400">{goal.topPeptides.length} peptides →</p>
+                <p className="mt-3 text-xs text-accent">{goal.topPeptides.length} peptides →</p>
               </Link>
             ))}
           </div>
           <div className="mt-6 text-center">
-            <Link href="/goals" className="text-sm text-cyan-400 hover:text-cyan-300">
+            <Link href="/goals" className="text-sm text-accent hover:text-accent-hover">
               View all {goals.length} goals →
             </Link>
           </div>
@@ -157,9 +157,9 @@ export default function HomePage() {
           <div className="grid gap-6 sm:grid-cols-2">
             <Link
               href="/tools/dosage-calculator"
-              className="group rounded-xl border border-border bg-[var(--card)] p-8 transition-all hover:border-cyan-500/30"
+              className="group rounded-xl border border-border bg-card p-8 transition-all hover:border-accent"
             >
-              <h3 className="text-xl font-semibold text-foreground group-hover:text-cyan-400 transition-colors">
+              <h3 className="text-xl font-semibold text-primary group-hover:text-accent transition-colors">
                 Dosage Calculator
               </h3>
               <p className="mt-2 text-sm text-muted">
@@ -168,9 +168,9 @@ export default function HomePage() {
             </Link>
             <Link
               href="/stacks"
-              className="group rounded-xl border border-border bg-[var(--card)] p-8 transition-all hover:border-cyan-500/30"
+              className="group rounded-xl border border-border bg-card p-8 transition-all hover:border-accent"
             >
-              <h3 className="text-xl font-semibold text-foreground group-hover:text-cyan-400 transition-colors">
+              <h3 className="text-xl font-semibold text-primary group-hover:text-accent transition-colors">
                 Peptide Stacks
               </h3>
               <p className="mt-2 text-sm text-muted">

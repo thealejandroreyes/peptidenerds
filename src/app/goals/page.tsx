@@ -35,13 +35,13 @@ export default function GoalsPage() {
           <Link
             key={goal.slug}
             href={`/goals/${goal.slug}`}
-            className="group rounded-xl border border-border bg-[var(--card)] p-6 transition-all hover:border-cyan-500/30 hover:bg-[var(--card-hover)]"
+            className="group rounded-xl border border-border bg-card p-6 transition-all hover:border-accent hover:bg-card-hover"
           >
-            <h2 className="text-lg font-semibold text-foreground group-hover:text-cyan-400 transition-colors">
+            <h2 className="text-lg font-semibold text-primary group-hover:text-accent transition-colors">
               {goal.name}
             </h2>
             <p className="mt-2 text-sm text-muted line-clamp-3">{goal.description}</p>
-            <p className="mt-4 text-xs text-cyan-400">{goal.topPeptides.length} recommended peptides →</p>
+            <p className="mt-4 text-xs text-accent">{goal.topPeptides.length} recommended peptides →</p>
           </Link>
         ))}
       </div>

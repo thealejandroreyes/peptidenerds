@@ -50,10 +50,10 @@ export default function ComparisonDetailPage({ params }: { params: { slug: strin
         <p className="mt-3 text-muted">{comparison.metaDescription}</p>
 
         {comparison.winner && (
-          <div className="mt-6 rounded-xl border border-green-500/20 bg-green-500/5 p-5">
-            <p className="text-sm font-medium text-green-400">Bottom Line</p>
+          <div className="mt-6 rounded-xl border border-green-200 bg-green-50 p-5">
+            <p className="text-sm font-medium text-green-700">Bottom Line</p>
             <p className="mt-1 text-sm text-foreground">
-              Based on current research, <span className="font-semibold text-green-400">{comparison.winner}</span> comes
+              Based on current research, <span className="font-semibold text-green-700">{comparison.winner}</span> comes
               out ahead in this comparison. See the full breakdown below for context — the best choice depends on your
               specific situation.
             </p>
@@ -72,27 +72,27 @@ export default function ComparisonDetailPage({ params }: { params: { slug: strin
             {peptideA && (
               <Link
                 href={`/peptides/${peptideA.slug}`}
-                className="rounded-xl border border-border bg-[var(--card)] p-4 transition-all hover:border-cyan-500/30"
+                className="rounded-xl border border-border bg-card p-4 transition-all hover:border-accent"
               >
-                <p className="text-sm font-medium text-cyan-400">{peptideA.name}</p>
+                <p className="text-sm font-medium text-accent">{peptideA.name}</p>
                 <p className="mt-1 text-xs text-muted line-clamp-2">{peptideA.description}</p>
               </Link>
             )}
             {peptideB && (
               <Link
                 href={`/peptides/${peptideB.slug}`}
-                className="rounded-xl border border-border bg-[var(--card)] p-4 transition-all hover:border-cyan-500/30"
+                className="rounded-xl border border-border bg-card p-4 transition-all hover:border-accent"
               >
-                <p className="text-sm font-medium text-purple-400">{peptideB.name}</p>
+                <p className="text-sm font-medium text-purple-600">{peptideB.name}</p>
                 <p className="mt-1 text-xs text-muted line-clamp-2">{peptideB.description}</p>
               </Link>
             )}
             {peptideC && (
               <Link
                 href={`/peptides/${peptideC.slug}`}
-                className="rounded-xl border border-border bg-[var(--card)] p-4 transition-all hover:border-cyan-500/30"
+                className="rounded-xl border border-border bg-card p-4 transition-all hover:border-accent"
               >
-                <p className="text-sm font-medium text-amber-400">{peptideC.name}</p>
+                <p className="text-sm font-medium text-amber-600">{peptideC.name}</p>
                 <p className="mt-1 text-xs text-muted line-clamp-2">{peptideC.description}</p>
               </Link>
             )}
@@ -110,7 +110,7 @@ export default function ComparisonDetailPage({ params }: { params: { slug: strin
                 <Link
                   key={comp.slug}
                   href={`/compare/${comp.slug}`}
-                  className="rounded-xl border border-border bg-[var(--card)] p-4 transition-all hover:border-cyan-500/30"
+                  className="rounded-xl border border-border bg-card p-4 transition-all hover:border-accent"
                 >
                   <p className="text-sm font-medium text-foreground">{comp.title}</p>
                 </Link>
@@ -126,8 +126,8 @@ export default function ComparisonDetailPage({ params }: { params: { slug: strin
           <AuthorBio />
         </div>
 
-        <div className="mt-6 rounded-xl border border-amber-500/20 bg-amber-500/5 p-5">
-          <p className="text-xs text-amber-200/80">
+        <div className="mt-6 rounded-xl border border-warm-sand bg-[#FEF9EC] p-5">
+          <p className="text-xs text-[#6B5A40]">
             <span className="font-medium">Medical Disclaimer:</span> This comparison is for informational purposes only.
             Individual responses vary. Always consult a qualified healthcare provider before starting any peptide protocol.
           </p>
