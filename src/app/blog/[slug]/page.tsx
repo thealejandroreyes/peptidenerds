@@ -12,8 +12,9 @@ export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }))
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const post = getPost(params.slug)
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const post = getPost(slug)
   if (!post) return { title: 'Not Found' }
   return {
     title: post.meta_title,
@@ -47,11 +48,12 @@ function extractFAQs(html: string): { question: string; answer: string }[] {
   return faqs
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = getPost(params.slug)
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const post = getPost(slug)
   if (!post) notFound()
 
-  const related = getRelatedPosts(params.slug, 3)
+  const related = getRelatedPosts(slug, 3)
   const faqs = extractFAQs(post.htmlContent)
 
   const pillarLabels: Record<string, string> = {

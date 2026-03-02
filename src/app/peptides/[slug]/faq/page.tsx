@@ -11,8 +11,9 @@ export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }))
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const peptide = getPeptide(params.slug)
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const peptide = getPeptide(slug)
   if (!peptide) return { title: 'Not Found' }
   const year = new Date().getFullYear()
   return {
@@ -21,8 +22,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   }
 }
 
-export default function FAQPage({ params }: { params: { slug: string } }) {
-  const peptide = getPeptide(params.slug)
+export default async function FAQPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const peptide = getPeptide(slug)
   if (!peptide) notFound()
 
   if (peptide.faq.length === 0) notFound()

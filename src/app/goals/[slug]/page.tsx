@@ -14,8 +14,9 @@ export function generateStaticParams() {
   return getAllGoalSlugs().map((slug) => ({ slug }))
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const goal = getGoal(params.slug)
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const goal = getGoal(slug)
   if (!goal) return { title: 'Not Found' }
   return {
     title: `Best Peptides for ${goal.name} — Evidence-Based Recommendations`,
@@ -23,8 +24,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   }
 }
 
-export default function GoalDetailPage({ params }: { params: { slug: string } }) {
-  const goal = getGoal(params.slug)
+export default async function GoalDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const goal = getGoal(slug)
   if (!goal) notFound()
 
   const topPeptides = goal.topPeptides.map((slug) => getPeptide(slug)).filter(Boolean)

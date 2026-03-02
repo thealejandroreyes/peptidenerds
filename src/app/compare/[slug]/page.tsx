@@ -13,8 +13,9 @@ export function generateStaticParams() {
   return getAllComparisonSlugs().map((slug) => ({ slug }))
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const comparison = getComparison(params.slug)
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const comparison = getComparison(slug)
   if (!comparison) return { title: 'Not Found' }
   return {
     title: comparison.title,
@@ -22,8 +23,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   }
 }
 
-export default function ComparisonDetailPage({ params }: { params: { slug: string } }) {
-  const comparison = getComparison(params.slug)
+export default async function ComparisonDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const comparison = getComparison(slug)
   if (!comparison) notFound()
 
   const peptideA = getPeptide(comparison.peptideA)
