@@ -18,6 +18,7 @@
   --soft-sky: #C8E8E4;
   --pearl: #EDE8E0;
   --warm-sand: #D4C5A9;
+  --slate-text: #3D5050;
 }
 
 @theme inline {
@@ -38,14 +39,16 @@
   --color-soft-sky: var(--soft-sky);
   --color-pearl: var(--pearl);
   --color-warm-sand: var(--warm-sand);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-slate-text: var(--slate-text);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-cormorant);
+  --font-mono: monospace;
 }
 
 body {
+  font-family: var(--font-sans), 'Inter', system-ui, -apple-system, sans-serif;
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
 }
 
 /* Smooth scrolling */
@@ -68,17 +71,39 @@ html {
   background: var(--muted);
 }
 
+/* Global heading typography — Cormorant Garamond */
+h1, h2, h3 {
+  font-family: var(--font-serif), 'Cormorant Garamond', Georgia, serif;
+}
+
+h1 {
+  font-weight: 300;
+  letter-spacing: -0.5px;
+  line-height: 1.18;
+}
+
+h2 {
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+h3 {
+  font-weight: 500;
+}
+
 /* Prose-like content styling */
 .prose-custom h2 {
+  font-family: var(--font-serif), 'Cormorant Garamond', Georgia, serif;
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 400;
   margin-top: 2rem;
   margin-bottom: 1rem;
   color: var(--primary);
 }
 .prose-custom h3 {
+  font-family: var(--font-serif), 'Cormorant Garamond', Georgia, serif;
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 500;
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
   color: var(--primary);

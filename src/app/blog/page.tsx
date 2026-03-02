@@ -28,7 +28,7 @@ export default function BlogPage() {
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
       <Breadcrumbs items={[{ name: 'Blog', href: '/blog' }]} />
 
-      <h1 className="text-3xl font-bold text-foreground">Blog</h1>
+      <h1 className="text-3xl font-light text-foreground">Blog</h1>
       <p className="mt-3 text-muted">
         Research breakdowns, protocol deep dives, and journey updates. New articles published weekly.
       </p>
@@ -61,7 +61,7 @@ export default function BlogPage() {
                 <span className="text-border">&middot;</span>
                 <span>{post.reading_time}</span>
               </div>
-              <h2 className="mt-2 text-xl font-semibold text-foreground">{post.title}</h2>
+              <h2 className="mt-2 text-xl text-foreground">{post.title}</h2>
               <p className="mt-2 text-sm text-muted line-clamp-2">{post.meta_description}</p>
             </Link>
           ))}

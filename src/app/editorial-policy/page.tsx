@@ -12,7 +12,7 @@ export default function EditorialPolicyPage() {
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
       <Breadcrumbs items={[{ name: 'Editorial Policy', href: '/editorial-policy' }]} />
 
-      <h1 className="text-3xl font-bold text-foreground">Editorial Policy</h1>
+      <h1 className="text-3xl font-light text-foreground">Editorial Policy</h1>
 
       <div className="prose-custom mt-8">
         <h2>Our standards</h2>

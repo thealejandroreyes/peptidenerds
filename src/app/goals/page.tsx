@@ -18,7 +18,7 @@ export default function GoalsPage() {
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
       <Breadcrumbs items={[{ name: 'Goals', href: '/goals' }]} />
 
-      <h1 className="text-3xl font-bold text-foreground">Find peptides by goal</h1>
+      <h1 className="text-3xl font-light text-foreground">Find peptides by goal</h1>
       <p className="mt-3 text-muted">
         Not sure where to start? Pick your goal and we will show you the most researched peptides for that purpose.
       </p>
@@ -37,7 +37,7 @@ export default function GoalsPage() {
             href={`/goals/${goal.slug}`}
             className="group rounded-xl border border-border bg-card p-6 transition-all hover:border-accent hover:bg-card-hover"
           >
-            <h2 className="text-lg font-semibold text-primary group-hover:text-accent transition-colors">
+            <h2 className="text-lg text-primary group-hover:text-accent transition-colors">
               {goal.name}
             </h2>
             <p className="mt-2 text-sm text-muted line-clamp-3">{goal.description}</p>

@@ -14,7 +14,7 @@ export default function AboutPage() {
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
       <Breadcrumbs items={[{ name: 'About', href: '/about' }]} />
 
-      <h1 className="text-3xl font-bold text-foreground">About this site</h1>
+      <h1 className="text-3xl font-light text-foreground">About this site</h1>
 
       <div className="prose-custom mt-8">
         <h2>Who I am</h2>

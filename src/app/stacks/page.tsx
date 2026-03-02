@@ -20,7 +20,7 @@ export default function StacksPage() {
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
       <Breadcrumbs items={[{ name: 'Stacks', href: '/stacks' }]} />
 
-      <h1 className="text-3xl font-bold text-foreground">Peptide Stacks</h1>
+      <h1 className="text-3xl font-light text-foreground">Peptide Stacks</h1>
       <p className="mt-3 text-muted">
         {stacks.length} curated combination protocols. Each stack includes dosing, timing, cost estimates, and what to
         expect. Sorted by difficulty level.
@@ -34,7 +34,7 @@ export default function StacksPage() {
             className="group rounded-xl border border-border bg-card p-6 transition-all hover:border-accent hover:bg-card-hover"
           >
             <div className="flex items-start justify-between gap-2">
-              <h2 className="text-base font-semibold text-primary group-hover:text-accent transition-colors">
+              <h2 className="text-base text-primary group-hover:text-accent transition-colors">
                 {stack.name}
               </h2>
               <span className={`flex-shrink-0 inline-flex items-center rounded-full border px-2 py-0.5 text-xs ${difficultyColors[stack.difficulty]}`}>

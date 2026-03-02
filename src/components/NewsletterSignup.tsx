@@ -32,7 +32,7 @@ export function NewsletterSignup() {
 
   return (
     <div className="rounded-xl bg-primary p-6">
-      <h3 className="text-lg font-semibold text-white">Weekly peptide research updates</h3>
+      <h3 className="text-lg font-medium text-white">Weekly peptide research updates</h3>
       <p className="mt-2 text-sm text-white/70">
         New studies, GLP-1 news, protocol insights, and weight loss data — delivered every week. Free. No spam.
       </p>
@@ -51,7 +51,7 @@ export function NewsletterSignup() {
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="rounded-lg bg-cta px-5 py-2 text-sm font-medium text-cta-foreground transition-colors hover:bg-cta-hover disabled:opacity-50"
+            className="rounded-full bg-cta px-5 py-2 text-sm font-medium text-cta-foreground transition-colors hover:bg-cta-hover disabled:opacity-50"
           >
             {status === 'loading' ? 'Joining...' : 'Subscribe'}
           </button>

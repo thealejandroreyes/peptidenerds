@@ -50,7 +50,7 @@ export default function StackDetailPage({ params }: { params: { slug: string } }
           ]}
         />
 
-        <h1 className="text-3xl font-bold text-foreground">{stack.name}</h1>
+        <h1 className="text-3xl font-light text-foreground">{stack.name}</h1>
         <p className="mt-3 text-muted">{stack.description}</p>
 
         {/* Quick stats */}
@@ -79,7 +79,7 @@ export default function StackDetailPage({ params }: { params: { slug: string } }
 
         {/* Peptide protocol table */}
         <section className="mt-10">
-          <h2 className="text-xl font-semibold text-foreground">Protocol</h2>
+          <h2 className="text-xl text-foreground">Protocol</h2>
           <div className="mt-4 overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
@@ -119,7 +119,7 @@ export default function StackDetailPage({ params }: { params: { slug: string } }
 
         {/* Notes */}
         <section className="mt-10">
-          <h2 className="text-xl font-semibold text-foreground">Notes</h2>
+          <h2 className="text-xl text-foreground">Notes</h2>
           <div className="mt-4 rounded-xl border border-border bg-card p-5">
             <p className="text-sm text-muted leading-relaxed">{stack.notes}</p>
           </div>
@@ -128,7 +128,7 @@ export default function StackDetailPage({ params }: { params: { slug: string } }
         {/* Related goals */}
         {relatedGoals.length > 0 && (
           <section className="mt-10">
-            <h2 className="text-xl font-semibold text-foreground">Related goals</h2>
+            <h2 className="text-xl text-foreground">Related goals</h2>
             <div className="mt-3 flex flex-wrap gap-2">
               {relatedGoals.map((goal) =>
                 goal ? (
@@ -147,7 +147,7 @@ export default function StackDetailPage({ params }: { params: { slug: string } }
 
         {/* Other stacks */}
         <section className="mt-10">
-          <h2 className="text-xl font-semibold text-foreground">More stacks</h2>
+          <h2 className="text-xl text-foreground">More stacks</h2>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {stacks
               .filter((s) => s.slug !== stack.slug)

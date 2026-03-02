@@ -43,7 +43,7 @@ export default function DosagePage({ params }: { params: { slug: string } }) {
           ]}
         />
 
-        <h1 className="text-3xl font-bold text-foreground">
+        <h1 className="text-3xl font-light text-foreground">
           {peptide.name} Dosage Guide
         </h1>
 
@@ -132,22 +132,22 @@ export default function DosagePage({ params }: { params: { slug: string } }) {
         </div>
 
         <div className="mt-8 flex flex-wrap gap-2">
-          <Link href={`/peptides/${peptide.slug}`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
+          <Link href={`/peptides/${peptide.slug}`} className="rounded-full border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
             Overview
           </Link>
-          <Link href={`/peptides/${peptide.slug}/benefits`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
+          <Link href={`/peptides/${peptide.slug}/benefits`} className="rounded-full border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
             Benefits
           </Link>
-          <Link href={`/peptides/${peptide.slug}/side-effects`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
+          <Link href={`/peptides/${peptide.slug}/side-effects`} className="rounded-full border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
             Side Effects
           </Link>
-          <Link href={`/peptides/${peptide.slug}/faq`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
+          <Link href={`/peptides/${peptide.slug}/faq`} className="rounded-full border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
             FAQ
           </Link>
         </div>
 
         <div className="mt-6 text-center">
-          <Link href="/tools/dosage-calculator" className="inline-block rounded-lg bg-cta px-6 py-3 text-sm font-medium text-cta-foreground hover:bg-cta-hover">
+          <Link href="/tools/dosage-calculator" className="inline-block rounded-full bg-cta px-6 py-3 text-sm font-medium text-cta-foreground hover:bg-cta-hover">
             Use the Dosage Calculator
           </Link>
         </div>

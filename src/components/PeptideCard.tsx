@@ -10,7 +10,7 @@ export function PeptideCard({ peptide }: { peptide: Peptide }) {
     >
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h3 className="text-lg font-semibold text-primary group-hover:text-accent transition-colors">
+          <h3 className="text-lg font-medium text-primary group-hover:text-accent transition-colors">
             {peptide.name}
           </h3>
           {peptide.abbreviation && (

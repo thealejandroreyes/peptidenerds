@@ -1,18 +1,20 @@
 import type { Metadata } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Inter, Cormorant_Garamond } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { DisclaimerBanner } from '@/components/DisclaimerBanner'
 
 const inter = Inter({
-  variable: '--font-geist-sans',
+  variable: '--font-inter',
   subsets: ['latin'],
 })
 
-const jetbrains = JetBrains_Mono({
-  variable: '--font-geist-mono',
+const cormorant = Cormorant_Garamond({
+  variable: '--font-cormorant',
   subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  style: ['normal', 'italic'],
 })
 
 export const metadata: Metadata = {
@@ -51,7 +53,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${jetbrains.variable} antialiased bg-background text-foreground`}>
+      <body className={`${inter.variable} ${cormorant.variable} antialiased bg-background text-foreground`}>
         <Header />
         <DisclaimerBanner />
         <main className="min-h-screen">{children}</main>

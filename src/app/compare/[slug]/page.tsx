@@ -46,7 +46,7 @@ export default function ComparisonDetailPage({ params }: { params: { slug: strin
           ]}
         />
 
-        <h1 className="text-3xl font-bold text-foreground">{comparison.title}</h1>
+        <h1 className="text-3xl font-light text-foreground">{comparison.title}</h1>
         <p className="mt-3 text-muted">{comparison.metaDescription}</p>
 
         {comparison.winner && (
@@ -67,7 +67,7 @@ export default function ComparisonDetailPage({ params }: { params: { slug: strin
 
         {/* Links to peptide pages */}
         <div className="mt-10">
-          <h2 className="text-xl font-semibold text-foreground">Learn more about each peptide</h2>
+          <h2 className="text-xl text-foreground">Learn more about each peptide</h2>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {peptideA && (
               <Link
@@ -101,7 +101,7 @@ export default function ComparisonDetailPage({ params }: { params: { slug: strin
 
         {/* Other comparisons */}
         <div className="mt-10">
-          <h2 className="text-xl font-semibold text-foreground">More comparisons</h2>
+          <h2 className="text-xl text-foreground">More comparisons</h2>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {comparisons
               .filter((c) => c.slug !== comparison.slug)

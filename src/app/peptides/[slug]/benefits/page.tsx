@@ -48,7 +48,7 @@ export default function BenefitsPage({ params }: { params: { slug: string } }) {
           ]}
         />
 
-        <h1 className="text-3xl font-bold text-foreground">
+        <h1 className="text-3xl font-light text-foreground">
           {peptide.name} Benefits
         </h1>
 
@@ -107,23 +107,23 @@ export default function BenefitsPage({ params }: { params: { slug: string } }) {
         </div>
 
         <div className="mt-8 flex flex-wrap gap-2">
-          <Link href={`/peptides/${peptide.slug}`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
+          <Link href={`/peptides/${peptide.slug}`} className="rounded-full border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
             Overview
           </Link>
-          <Link href={`/peptides/${peptide.slug}/dosage`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
+          <Link href={`/peptides/${peptide.slug}/dosage`} className="rounded-full border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
             Dosage
           </Link>
-          <Link href={`/peptides/${peptide.slug}/side-effects`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
+          <Link href={`/peptides/${peptide.slug}/side-effects`} className="rounded-full border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
             Side Effects
           </Link>
-          <Link href={`/peptides/${peptide.slug}/faq`} className="rounded-lg border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
+          <Link href={`/peptides/${peptide.slug}/faq`} className="rounded-full border border-border px-4 py-2 text-sm text-muted hover:text-foreground hover:border-accent">
             FAQ
           </Link>
         </div>
 
         {relatedPeptides.length > 0 && (
           <div className="mt-10">
-            <h2 className="text-lg font-bold text-foreground">Related peptides</h2>
+            <h2 className="text-lg text-foreground">Related peptides</h2>
             <div className="mt-3 grid gap-2">
               {relatedPeptides.map((rp) => (
                 <Link key={rp!.slug} href={`/peptides/${rp!.slug}/benefits`} className="block rounded-lg border border-border p-3 text-sm hover:border-accent">

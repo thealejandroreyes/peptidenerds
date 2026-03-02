@@ -56,7 +56,7 @@ export default function PeptideDetailPage({ params }: { params: { slug: string }
 
         {/* Header */}
         <div className="flex flex-wrap items-start gap-3">
-          <h1 className="text-3xl font-bold text-foreground">{peptide.name}</h1>
+          <h1 className="text-3xl font-light text-foreground">{peptide.name}</h1>
           {peptide.abbreviation && (
             <span className="mt-1 text-lg text-muted">({peptide.abbreviation})</span>
           )}
@@ -86,13 +86,13 @@ export default function PeptideDetailPage({ params }: { params: { slug: string }
 
         {/* Mechanism */}
         <section className="mt-10">
-          <h2 className="text-xl font-semibold text-foreground">How it works</h2>
+          <h2 className="text-xl text-foreground">How it works</h2>
           <p className="mt-3 text-sm text-muted leading-relaxed">{peptide.mechanism}</p>
         </section>
 
         {/* Benefits */}
         <section className="mt-10">
-          <h2 className="text-xl font-semibold text-foreground">Benefits</h2>
+          <h2 className="text-xl text-foreground">Benefits</h2>
           <ul className="mt-3 space-y-2">
             {peptide.benefits.map((b, i) => (
               <li key={i} className="flex items-start gap-2 text-sm text-muted">
@@ -105,7 +105,7 @@ export default function PeptideDetailPage({ params }: { params: { slug: string }
 
         {/* Side Effects */}
         <section className="mt-10">
-          <h2 className="text-xl font-semibold text-foreground">Side effects</h2>
+          <h2 className="text-xl text-foreground">Side effects</h2>
           <ul className="mt-3 space-y-2">
             {peptide.sideEffects.map((s, i) => (
               <li key={i} className="flex items-start gap-2 text-sm text-muted">
@@ -118,7 +118,7 @@ export default function PeptideDetailPage({ params }: { params: { slug: string }
 
         {/* Dosing */}
         <section className="mt-10">
-          <h2 className="text-xl font-semibold text-foreground">Dosing protocol</h2>
+          <h2 className="text-xl text-foreground">Dosing protocol</h2>
           <div className="mt-4 rounded-xl border border-border bg-card p-5">
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
@@ -145,7 +145,7 @@ export default function PeptideDetailPage({ params }: { params: { slug: string }
         {/* Research */}
         {peptide.research.keyStudies.length > 0 && (
           <section className="mt-10">
-            <h2 className="text-xl font-semibold text-foreground">Key research</h2>
+            <h2 className="text-xl text-foreground">Key research</h2>
             <div className="mt-4 space-y-4">
               {peptide.research.keyStudies.map((study, i) => (
                 <div key={i} className="rounded-xl border border-border bg-card p-5">
@@ -176,7 +176,7 @@ export default function PeptideDetailPage({ params }: { params: { slug: string }
         {/* FDA Status */}
         {peptide.fdaApprovedFor && (
           <section className="mt-10">
-            <h2 className="text-xl font-semibold text-foreground">FDA status</h2>
+            <h2 className="text-xl text-foreground">FDA status</h2>
             <p className="mt-3 text-sm text-muted">
               <span className="font-medium text-green-400">FDA Approved</span> for: {peptide.fdaApprovedFor}
             </p>
@@ -186,7 +186,7 @@ export default function PeptideDetailPage({ params }: { params: { slug: string }
         {/* FAQ */}
         {peptide.faq.length > 0 && (
           <section className="mt-10">
-            <h2 className="text-xl font-semibold text-foreground">Frequently asked questions</h2>
+            <h2 className="text-xl text-foreground">Frequently asked questions</h2>
             <div className="mt-4">
               <FAQAccordion faqs={peptide.faq} />
             </div>
@@ -196,7 +196,7 @@ export default function PeptideDetailPage({ params }: { params: { slug: string }
         {/* Related Comparisons */}
         {relatedComparisons.length > 0 && (
           <section className="mt-10">
-            <h2 className="text-xl font-semibold text-foreground">Compare {peptide.name}</h2>
+            <h2 className="text-xl text-foreground">Compare {peptide.name}</h2>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               {relatedComparisons.map((comp) => (
                 <Link
@@ -214,7 +214,7 @@ export default function PeptideDetailPage({ params }: { params: { slug: string }
         {/* Related Stacks */}
         {relatedStacks.length > 0 && (
           <section className="mt-10">
-            <h2 className="text-xl font-semibold text-foreground">Stacks with {peptide.name}</h2>
+            <h2 className="text-xl text-foreground">Stacks with {peptide.name}</h2>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               {relatedStacks.map((stack) => (
                 <Link
@@ -233,7 +233,7 @@ export default function PeptideDetailPage({ params }: { params: { slug: string }
         {/* Related Goals */}
         {relatedGoals.length > 0 && (
           <section className="mt-10">
-            <h2 className="text-xl font-semibold text-foreground">Goals</h2>
+            <h2 className="text-xl text-foreground">Goals</h2>
             <div className="mt-3 flex flex-wrap gap-2">
               {relatedGoals.map((goal) => (
                 <Link
@@ -251,7 +251,7 @@ export default function PeptideDetailPage({ params }: { params: { slug: string }
         {/* Related Peptides */}
         {relatedPeptides.length > 0 && (
           <section className="mt-10">
-            <h2 className="text-xl font-semibold text-foreground">Related peptides</h2>
+            <h2 className="text-xl text-foreground">Related peptides</h2>
             <div className="mt-3 flex flex-wrap gap-2">
               {relatedPeptides.map((rp) =>
                 rp ? (

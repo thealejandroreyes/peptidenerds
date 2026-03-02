@@ -99,7 +99,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         </div>
 
         {/* Title */}
-        <h1 className="mt-4 text-3xl font-bold leading-tight text-foreground sm:text-4xl">
+        <h1 className="mt-4 text-3xl font-light leading-tight text-foreground sm:text-4xl">
           {post.title}
         </h1>
 
@@ -122,7 +122,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         {/* Related posts */}
         {related.length > 0 && (
           <div className="mt-12">
-            <h2 className="text-xl font-bold text-foreground">Related articles</h2>
+            <h2 className="text-xl text-foreground">Related articles</h2>
             <div className="mt-4 grid gap-4">
               {related.map((r) => (
                 <Link

@@ -26,7 +26,7 @@ export default function PeptidesPage() {
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
       <Breadcrumbs items={[{ name: 'Peptides', href: '/peptides' }]} />
 
-      <h1 className="text-3xl font-bold text-foreground">Peptide Guide</h1>
+      <h1 className="text-3xl font-light text-foreground">Peptide Guide</h1>
       <p className="mt-3 text-muted">
         {peptides.length} compounds for weight loss, healing, and optimization. Each profile includes research evidence
         with PubMed citations, dosing protocols, side effects, and FDA status.
@@ -37,7 +37,7 @@ export default function PeptidesPage() {
         if (catPeptides.length === 0) return null
         return (
           <section key={cat.key} className="mt-12">
-            <h2 className="text-xl font-semibold text-foreground">{cat.label}</h2>
+            <h2 className="text-xl text-foreground">{cat.label}</h2>
             <p className="mt-1 text-sm text-muted">{cat.description}</p>
             <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {catPeptides.map((p) => (

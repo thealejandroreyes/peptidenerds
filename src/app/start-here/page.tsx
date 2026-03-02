@@ -22,7 +22,7 @@ export default function StartHerePage() {
       <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
         <Breadcrumbs items={[{ name: 'Start Here', href: '/start-here' }]} />
 
-        <h1 className="text-3xl font-bold text-foreground">New to peptides? Start here.</h1>
+        <h1 className="text-3xl font-light text-foreground">New to peptides? Start here.</h1>
         <p className="mt-3 text-lg text-muted">
           A no-nonsense introduction to peptides — what they are, how they work, and what you need to know before doing
           anything.
@@ -82,7 +82,7 @@ export default function StartHerePage() {
             href="/peptides"
             className="group rounded-xl border border-border bg-card p-5 transition-all hover:border-accent"
           >
-            <h3 className="font-semibold text-primary group-hover:text-accent transition-colors">
+            <h3 className="font-medium text-primary group-hover:text-accent transition-colors">
               Browse all 40 peptides
             </h3>
             <p className="mt-1 text-sm text-muted">Detailed profiles with research, dosing, and FAQ.</p>
@@ -91,7 +91,7 @@ export default function StartHerePage() {
             href="/goals"
             className="group rounded-xl border border-border bg-card p-5 transition-all hover:border-accent"
           >
-            <h3 className="font-semibold text-primary group-hover:text-accent transition-colors">
+            <h3 className="font-medium text-primary group-hover:text-accent transition-colors">
               Find by goal
             </h3>
             <p className="mt-1 text-sm text-muted">Weight loss, healing, anti-aging, sleep, and more.</p>
@@ -100,7 +100,7 @@ export default function StartHerePage() {
             href="/compare"
             className="group rounded-xl border border-border bg-card p-5 transition-all hover:border-accent"
           >
-            <h3 className="font-semibold text-primary group-hover:text-accent transition-colors">
+            <h3 className="font-medium text-primary group-hover:text-accent transition-colors">
               Compare peptides
             </h3>
             <p className="mt-1 text-sm text-muted">Side-by-side analysis to help you decide.</p>
@@ -109,7 +109,7 @@ export default function StartHerePage() {
             href="/tools/dosage-calculator"
             className="group rounded-xl border border-border bg-card p-5 transition-all hover:border-accent"
           >
-            <h3 className="font-semibold text-primary group-hover:text-accent transition-colors">
+            <h3 className="font-medium text-primary group-hover:text-accent transition-colors">
               Dosage calculator
             </h3>
             <p className="mt-1 text-sm text-muted">Calculate reconstitution and injection volumes.</p>

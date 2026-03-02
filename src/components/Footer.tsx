@@ -27,7 +27,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           <div>
-            <Link href="/" className="text-lg font-bold text-white">
+            <Link href="/" className="font-serif text-lg font-medium tracking-wide text-white">
               Peptide<span className="text-sage">Nerds</span>
             </Link>
             <p className="mt-3 text-sm text-white/60">

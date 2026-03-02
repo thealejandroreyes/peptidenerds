@@ -47,7 +47,7 @@ export default function GoalDetailPage({ params }: { params: { slug: string } })
           ]}
         />
 
-        <h1 className="text-3xl font-bold text-foreground">Best peptides for {goal.name.toLowerCase()}</h1>
+        <h1 className="text-3xl font-light text-foreground">Best peptides for {goal.name.toLowerCase()}</h1>
         <p className="mt-3 text-muted">{goal.description}</p>
 
         {/* Key considerations */}
@@ -58,7 +58,7 @@ export default function GoalDetailPage({ params }: { params: { slug: string } })
 
         {/* Top peptides */}
         <section className="mt-10">
-          <h2 className="text-xl font-semibold text-foreground">Recommended peptides</h2>
+          <h2 className="text-xl text-foreground">Recommended peptides</h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
             {topPeptides.map((peptide) =>
               peptide ? <PeptideCard key={peptide.slug} peptide={peptide} /> : null
@@ -69,7 +69,7 @@ export default function GoalDetailPage({ params }: { params: { slug: string } })
         {/* Related stacks */}
         {relatedStacks.length > 0 && (
           <section className="mt-10">
-            <h2 className="text-xl font-semibold text-foreground">Recommended stacks</h2>
+            <h2 className="text-xl text-foreground">Recommended stacks</h2>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               {relatedStacks.map((stack) => (
                 <Link
@@ -88,7 +88,7 @@ export default function GoalDetailPage({ params }: { params: { slug: string } })
 
         {/* Other goals */}
         <section className="mt-10">
-          <h2 className="text-xl font-semibold text-foreground">Explore other goals</h2>
+          <h2 className="text-xl text-foreground">Explore other goals</h2>
           <div className="mt-4 flex flex-wrap gap-2">
             {otherGoals.map((g) => (
               <Link

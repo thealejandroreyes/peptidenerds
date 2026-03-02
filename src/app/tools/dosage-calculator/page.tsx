@@ -49,7 +49,7 @@ export default function DosageCalculatorPage() {
         ]}
       />
 
-      <h1 className="text-3xl font-bold text-foreground">Peptide Dosage Calculator</h1>
+      <h1 className="text-3xl font-light text-foreground">Peptide Dosage Calculator</h1>
       <p className="mt-3 text-muted">
         Calculate how much reconstituted peptide to draw for your desired dose. Enter your vial size, bacteriostatic
         water volume, and target dose.
@@ -138,7 +138,7 @@ export default function DosageCalculatorPage() {
 
         <button
           onClick={calculate}
-          className="mt-6 w-full rounded-lg bg-cta px-6 py-3 text-sm font-medium text-cta-foreground transition-colors hover:bg-cta-hover"
+          className="mt-6 w-full rounded-full bg-cta px-6 py-3 text-sm font-medium text-cta-foreground transition-colors hover:bg-cta-hover"
         >
           Calculate
         </button>
@@ -147,7 +147,7 @@ export default function DosageCalculatorPage() {
       {/* Results */}
       {result && (
         <div className="mt-6 rounded-xl border border-accent/20 bg-soft-sky/30 p-6">
-          <h2 className="text-lg font-semibold text-foreground">Your dosage</h2>
+          <h2 className="text-lg text-foreground">Your dosage</h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
             <div>
               <p className="text-xs text-muted uppercase tracking-wider">Concentration</p>
