@@ -63,7 +63,7 @@ export default async function PeptideDetailPage({ params }: { params: Promise<{ 
             <span className="mt-1 text-lg text-muted">({peptide.abbreviation})</span>
           )}
         </div>
-        <div className="mt-3 flex flex-wrap gap-2">
+        <div className="mt-3 flex flex-wrap items-center gap-2">
           <span className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium ${getCategoryColor(peptide.category)}`}>
             {getCategoryLabel(peptide.category)}
           </span>
@@ -73,6 +73,12 @@ export default async function PeptideDetailPage({ params }: { params: Promise<{ 
           <span className="inline-flex items-center rounded-full border border-border px-3 py-1 text-xs text-muted">
             {peptide.research.level} evidence
           </span>
+          <Link
+            href={`/tracker?peptide=${peptide.slug}`}
+            className="inline-flex items-center rounded-full bg-cta px-6 py-3 text-sm font-medium text-cta-foreground transition-colors hover:bg-cta-hover"
+          >
+            Track This Protocol
+          </Link>
         </div>
 
         {/* Author byline — small, trust signal only */}
@@ -104,6 +110,14 @@ export default async function PeptideDetailPage({ params }: { params: Promise<{ 
             ))}
           </ul>
         </section>
+
+        {/* Clinical Comparisons */}
+        {peptide.clinicalComparisons && (
+          <section className="mt-10">
+            <h2 className="text-xl text-foreground">Clinical comparisons</h2>
+            <div className="mt-3 text-sm text-muted leading-relaxed whitespace-pre-line">{peptide.clinicalComparisons}</div>
+          </section>
+        )}
 
         {/* Side Effects */}
         <section className="mt-10">
@@ -142,6 +156,14 @@ export default async function PeptideDetailPage({ params }: { params: Promise<{ 
               <p className="mt-4 text-sm text-muted border-t border-border pt-4">{peptide.dosing.notes}</p>
             )}
           </div>
+          <div className="mt-4">
+            <Link
+              href={`/tracker?peptide=${peptide.slug}`}
+              className="inline-flex items-center rounded-full bg-cta px-6 py-3 text-sm font-medium text-cta-foreground transition-colors hover:bg-cta-hover"
+            >
+              Track This Protocol
+            </Link>
+          </div>
         </section>
 
         {/* Research */}
@@ -175,6 +197,14 @@ export default async function PeptideDetailPage({ params }: { params: Promise<{ 
           </section>
         )}
 
+        {/* Real-World Data */}
+        {peptide.realWorldData && (
+          <section className="mt-10">
+            <h2 className="text-xl text-foreground">Real-world data</h2>
+            <div className="mt-3 text-sm text-muted leading-relaxed whitespace-pre-line">{peptide.realWorldData}</div>
+          </section>
+        )}
+
         {/* FDA Status */}
         {peptide.fdaApprovedFor && (
           <section className="mt-10">
@@ -182,6 +212,22 @@ export default async function PeptideDetailPage({ params }: { params: Promise<{ 
             <p className="mt-3 text-sm text-muted">
               <span className="font-medium text-green-400">FDA Approved</span> for: {peptide.fdaApprovedFor}
             </p>
+          </section>
+        )}
+
+        {/* Drug Interactions */}
+        {peptide.drugInteractions && (
+          <section className="mt-10">
+            <h2 className="text-xl text-foreground">Drug interactions</h2>
+            <div className="mt-3 text-sm text-muted leading-relaxed whitespace-pre-line">{peptide.drugInteractions}</div>
+          </section>
+        )}
+
+        {/* Special Populations */}
+        {peptide.populationNotes && (
+          <section className="mt-10">
+            <h2 className="text-xl text-foreground">Special populations</h2>
+            <div className="mt-3 text-sm text-muted leading-relaxed whitespace-pre-line">{peptide.populationNotes}</div>
           </section>
         )}
 

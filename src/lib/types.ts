@@ -43,6 +43,10 @@ export interface Peptide {
   fdaStatus: 'approved' | 'clinical-trials' | 'research-only'
   fdaApprovedFor?: string
   goals: string[]
+  clinicalComparisons?: string
+  realWorldData?: string
+  drugInteractions?: string
+  populationNotes?: string
   faq: FAQ[]
   relatedPeptides: string[]
   stacksWith: string[]

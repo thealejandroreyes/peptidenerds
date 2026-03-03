@@ -117,6 +117,14 @@ export default async function StackDetailPage({ params }: { params: Promise<{ sl
               </tbody>
             </table>
           </div>
+          <div className="mt-4">
+            <Link
+              href={`/tracker?stack=${stack.slug}`}
+              className="inline-flex items-center rounded-full bg-cta px-6 py-3 text-sm font-medium text-cta-foreground transition-colors hover:bg-cta-hover"
+            >
+              Start This Stack
+            </Link>
+          </div>
         </section>
 
         {/* Notes */}
