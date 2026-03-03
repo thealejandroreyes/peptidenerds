@@ -6,12 +6,12 @@ const footerLinks = {
     { name: 'GLP-1 Peptides', href: '/peptides' },
     { name: 'Compare GLP-1s', href: '/compare' },
     { name: 'Weight Loss Stacks', href: '/stacks' },
-    { name: 'Dosage Calculator', href: '/tools/dosage-calculator' },
   ],
   Learn: [
     { name: 'Start Here', href: '/start-here' },
     { name: 'All Peptides', href: '/peptides' },
     { name: 'Goals', href: '/goals' },
+    { name: 'All Tools', href: '/tools' },
     { name: 'Blog', href: '/blog' },
   ],
   Legal: [

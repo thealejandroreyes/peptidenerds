@@ -158,15 +158,16 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="grid gap-6 sm:grid-cols-2">
             <Link
-              href="/tools/dosage-calculator"
+              href="/tools"
               className="group rounded-xl border border-border bg-card p-8 transition-all hover:border-accent"
             >
               <h3 className="text-xl font-medium text-primary group-hover:text-accent transition-colors">
-                Dosage Calculator
+                Free Peptide Tools
               </h3>
               <p className="mt-2 text-sm text-muted">
-                Calculate reconstitution volumes, syringe units, and doses per vial. Works for any peptide.
+                Dosage calculator, reconstitution calculator, BAC water calculator, peptide finder, stack builder, and more.
               </p>
+              <p className="mt-3 text-xs text-accent">7 free tools →</p>
             </Link>
             <Link
               href="/stacks"
@@ -178,6 +179,7 @@ export default function HomePage() {
               <p className="mt-2 text-sm text-muted">
                 {stacks.length} combination protocols with dosing, timing, cost estimates, and difficulty ratings.
               </p>
+              <p className="mt-3 text-xs text-accent">{stacks.length} stacks →</p>
             </Link>
           </div>
         </div>
@@ -187,6 +189,30 @@ export default function HomePage() {
       <section className="border-t border-border">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 lg:px-8">
           <NewsletterSignup />
+        </div>
+      </section>
+
+      {/* New to Peptides — catch-all CTA for scrollers */}
+      <section className="bg-primary">
+        <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-20 lg:px-8">
+          <h2 className="text-2xl text-white sm:text-3xl">New to peptides? Start here.</h2>
+          <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-white/60">
+            Our beginner&apos;s guide covers everything from the basics to your first protocol — what peptides are, how they work, safety, legality, and how to get started.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Link
+              href="/start-here"
+              className="rounded-full bg-cta px-7 py-3 text-[13.5px] font-semibold tracking-[0.3px] text-cta-foreground transition-colors hover:bg-cta-hover"
+            >
+              Read the beginner&apos;s guide
+            </Link>
+            <Link
+              href="/peptides"
+              className="rounded-full border border-white/20 px-7 py-3 text-[13.5px] font-semibold tracking-[0.3px] text-white transition-colors hover:border-white/40"
+            >
+              Browse all peptides
+            </Link>
+          </div>
         </div>
       </section>
     </>
