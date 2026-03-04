@@ -65,10 +65,6 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Lead Magnet CTA — high in the page */}
-          <div className="mt-10 max-w-xl">
-            <LeadMagnetCTA variant="hero" utmSource="homepage-hero" />
-          </div>
         </div>
       </section>
 
@@ -90,6 +86,13 @@ export default function HomePage() {
           {glp1Peptides.map((peptide) => (
             <PeptideCard key={peptide.slug} peptide={peptide} />
           ))}
+        </div>
+      </section>
+
+      {/* Newsletter CTA — green break */}
+      <section className="bg-primary">
+        <div className="mx-auto max-w-2xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+          <LeadMagnetCTA variant="hero" utmSource="homepage-mid" />
         </div>
       </section>
 
