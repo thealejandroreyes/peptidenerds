@@ -43,22 +43,22 @@ export default function HomePage() {
               Everything you need to know about GLP-1 peptides for weight loss. Compare semaglutide, tirzepatide,
               and retatrutide side by side. Research-backed dosing, side effects, cost breakdowns, and tools.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap gap-3 max-w-4xl">
               <Link
                 href="/goals/weight-loss"
-                className="rounded-full bg-cta px-6 py-3 text-[13.5px] font-semibold tracking-[0.3px] text-cta-foreground transition-colors hover:bg-cta-hover"
+                className="rounded-full bg-cta px-5 py-2.5 text-[12.5px] font-semibold tracking-[0.3px] text-cta-foreground transition-colors hover:bg-cta-hover"
               >
                 Best peptides for weight loss
               </Link>
               <Link
                 href="/compare/semaglutide-vs-tirzepatide-vs-retatrutide"
-                className="rounded-full border border-white/20 px-6 py-3 text-[13.5px] font-semibold tracking-[0.3px] text-white transition-colors hover:border-white/40 hover:text-white"
+                className="rounded-full border border-white/20 px-5 py-2.5 text-[12.5px] font-semibold tracking-[0.3px] text-white transition-colors hover:border-white/40 hover:text-white"
               >
                 Semaglutide vs Tirzepatide vs Retatrutide
               </Link>
               <Link
                 href="/tools/dosage-calculator"
-                className="rounded-full border border-white/20 px-6 py-3 text-[13.5px] font-semibold tracking-[0.3px] text-white transition-colors hover:border-white/40 hover:text-white"
+                className="rounded-full border border-white/20 px-5 py-2.5 text-[12.5px] font-semibold tracking-[0.3px] text-white transition-colors hover:border-white/40 hover:text-white"
               >
                 Dosage calculator
               </Link>
