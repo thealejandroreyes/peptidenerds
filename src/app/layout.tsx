@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Cormorant_Garamond } from 'next/font/google'
 import './globals.css'
+import { Analytics } from '@vercel/analytics/react'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { DisclaimerBanner } from '@/components/DisclaimerBanner'
@@ -60,6 +61,7 @@ export default function RootLayout({
         <DisclaimerBanner />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   )
