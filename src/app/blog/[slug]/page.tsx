@@ -63,7 +63,20 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     'peptide-research': 'Research',
     'peptide-comparisons': 'Comparisons',
     'peptide-safety': 'Safety',
+    'peptide-weight-loss': 'Weight Loss',
+    'peptide-stacking': 'Stacking',
     'master-guide': 'Master Guide',
+  }
+
+  const pillarRoutes: Record<string, string> = {
+    'glp-1-peptides': '/glp-1-peptides',
+    'healing-peptides': '/healing-peptides',
+    'peptide-how-to': '/peptide-how-to',
+    'peptide-research': '/peptide-research',
+    'peptide-comparisons': '/peptide-comparisons',
+    'peptide-safety': '/peptide-safety',
+    'peptide-weight-loss': '/peptides-weight-loss-guide',
+    'master-guide': '/peptides-weight-loss-guide',
   }
 
   return (
@@ -91,9 +104,18 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           {post.pillar && (
             <>
               <span className="text-border">&middot;</span>
-              <span className="rounded-full border border-accent/20 bg-soft-sky px-2 py-0.5 text-accent">
-                {pillarLabels[post.pillar] || post.pillar}
-              </span>
+              {pillarRoutes[post.pillar] ? (
+                <Link
+                  href={pillarRoutes[post.pillar]}
+                  className="rounded-full border border-accent/20 bg-soft-sky px-2 py-0.5 text-accent hover:bg-accent/10 transition-colors"
+                >
+                  {pillarLabels[post.pillar] || post.pillar}
+                </Link>
+              ) : (
+                <span className="rounded-full border border-accent/20 bg-soft-sky px-2 py-0.5 text-accent">
+                  {pillarLabels[post.pillar] || post.pillar}
+                </span>
+              )}
             </>
           )}
           <span className="text-border">&middot;</span>

@@ -3,9 +3,17 @@ import Link from 'next/link'
 const footerLinks = {
   'Weight Loss': [
     { name: 'Best Peptides for Weight Loss', href: '/goals/weight-loss' },
-    { name: 'GLP-1 Peptides', href: '/peptides' },
+    { name: 'GLP-1 Peptides', href: '/glp-1-peptides' },
     { name: 'Compare GLP-1s', href: '/compare' },
     { name: 'Weight Loss Stacks', href: '/stacks' },
+  ],
+  Guides: [
+    { name: 'Weight Loss Guide', href: '/peptides-weight-loss-guide' },
+    { name: 'Healing Peptides', href: '/healing-peptides' },
+    { name: 'How-To Guides', href: '/peptide-how-to' },
+    { name: 'Safety Guide', href: '/peptide-safety' },
+    { name: 'Research & Science', href: '/peptide-research' },
+    { name: 'Comparisons', href: '/peptide-comparisons' },
   ],
   Learn: [
     { name: 'Start Here', href: '/start-here' },
@@ -27,7 +35,7 @@ export function Footer() {
   return (
     <footer className="border-t border-white/10 bg-[#1E2A2A]">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
           <div>
             <Link href="/" className="font-serif text-lg font-medium tracking-wide text-white">
               Peptide<span className="text-sage">Nerds</span>

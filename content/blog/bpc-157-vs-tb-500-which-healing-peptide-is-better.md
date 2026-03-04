@@ -5,7 +5,7 @@ meta_description: "BPC-157 vs TB-500 compared side by side. Mechanisms, research
 target_keyword: "bpc-157 vs tb-500"
 secondary_keywords: ["bpc-157 vs tb-500 for tendons", "healing peptides comparison", "bpc-157 tb-500 stack", "tb-500 vs bpc-157 recovery"]
 slug: "bpc-157-vs-tb-500-which-healing-peptide-is-better"
-pillar: "peptide-comparisons"
+pillar: "healing-peptides"
 content_type: "comparison"
 date: "2026-03-03"
 author: "Peptide Nerds Editorial"

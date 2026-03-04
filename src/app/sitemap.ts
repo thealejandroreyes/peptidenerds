@@ -3,6 +3,7 @@ import { getAllSlugs } from '@/data/peptides'
 import { getAllComparisonSlugs } from '@/data/comparisons'
 import { getAllGoalSlugs } from '@/data/goals'
 import { getAllStackSlugs } from '@/data/stacks'
+import { getAllPillarSlugs } from '@/data/pillars'
 import { getAllPosts } from '@/lib/blog'
 
 const BASE_URL = 'https://peptidenerds.com'
@@ -84,5 +85,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...staticPages, ...peptidePages, ...peptideSubPages, ...comparisonPages, ...goalPages, ...stackPages, ...blogPages]
+  // Pillar pages
+  const pillarPages: MetadataRoute.Sitemap = getAllPillarSlugs().map((slug) => ({
+    url: `${BASE_URL}/${slug}`,
+    lastModified: now,
+    changeFrequency: 'weekly' as const,
+    priority: 0.9,
+  }))
+
+  return [...staticPages, ...pillarPages, ...peptidePages, ...peptideSubPages, ...comparisonPages, ...goalPages, ...stackPages, ...blogPages]
 }
