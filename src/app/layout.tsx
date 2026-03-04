@@ -5,6 +5,8 @@ import { Analytics } from '@vercel/analytics/react'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { DisclaimerBanner } from '@/components/DisclaimerBanner'
+import { StickyBottomBar } from '@/components/StickyBottomBar'
+import { ExitIntentPopup } from '@/components/ExitIntentPopup'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -61,6 +63,8 @@ export default function RootLayout({
         <DisclaimerBanner />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <StickyBottomBar />
+        <ExitIntentPopup />
         <Analytics />
       </body>
     </html>

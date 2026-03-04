@@ -6,7 +6,7 @@ export function PeptideCard({ peptide }: { peptide: Peptide }) {
   return (
     <Link
       href={`/peptides/${peptide.slug}`}
-      className="group block rounded-xl border border-border bg-card p-6 transition-all hover:border-accent hover:bg-card-hover"
+      className="group block rounded-xl border border-border bg-card p-6 transition-all duration-200 hover:border-accent hover:bg-card-hover hover:scale-[1.01] hover:shadow-md"
     >
       <div className="flex items-start justify-between gap-3">
         <div>

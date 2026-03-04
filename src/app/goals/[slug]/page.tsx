@@ -7,7 +7,8 @@ import { getStacksByGoal } from '@/data/stacks'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { PeptideCard } from '@/components/PeptideCard'
 import { AuthorBio } from '@/components/AuthorBio'
-import { NewsletterSignup } from '@/components/NewsletterSignup'
+import { InlineContentCTA } from '@/components/InlineContentCTA'
+import { LeadMagnetCTA } from '@/components/LeadMagnetCTA'
 import { ArticleSchema } from '@/components/SchemaMarkup'
 
 export function generateStaticParams() {
@@ -68,6 +69,9 @@ export default async function GoalDetailPage({ params }: { params: Promise<{ slu
           </div>
         </section>
 
+        {/* Inline CTA — after peptide list */}
+        <InlineContentCTA type="compound" compoundName={goal.name} />
+
         {/* Related stacks */}
         {relatedStacks.length > 0 && (
           <section className="mt-10">
@@ -105,7 +109,7 @@ export default async function GoalDetailPage({ params }: { params: Promise<{ slu
         </section>
 
         <div className="mt-8">
-          <NewsletterSignup />
+          <LeadMagnetCTA variant="inline" utmSource={`goal-${goal.slug}`} />
         </div>
 
         <div className="mt-6">

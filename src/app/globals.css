@@ -149,6 +149,19 @@ h3 {
   animation: dropdown-in 150ms ease-out;
 }
 
+/* Gradient section dividers */
+.section-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--border) 20%,
+    var(--border) 80%,
+    transparent
+  );
+}
+
 /* Quiz step animations */
 @keyframes quiz-step-forward {
   from { opacity: 0; transform: translateX(40px); }

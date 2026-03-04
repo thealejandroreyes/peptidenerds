@@ -4,7 +4,8 @@ import { comparisons } from '@/data/comparisons'
 import { goals } from '@/data/goals'
 import { stacks } from '@/data/stacks'
 import { PeptideCard } from '@/components/PeptideCard'
-import { NewsletterSignup } from '@/components/NewsletterSignup'
+import { TrustBar } from '@/components/TrustBar'
+import { LeadMagnetCTA } from '@/components/LeadMagnetCTA'
 import { OrganizationSchema } from '@/components/SchemaMarkup'
 
 const weightLossComparisons = comparisons.filter((c) =>
@@ -34,14 +35,13 @@ export default function HomePage() {
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-[11px] font-semibold uppercase tracking-[3.5px] text-sage mb-5">Evidence-Based Peptide Research</p>
-            <h1 className="font-serif text-4xl font-light text-white sm:text-5xl lg:text-6xl">
+            <h1 className="font-serif text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
               The peptide{' '}
               <em className="text-sage">weight loss</em>{' '}
               guide
             </h1>
             <p className="mt-6 text-[15px] text-white/65 leading-relaxed max-w-xl">
-              Everything you need to know about GLP-1 peptides for weight loss. Compare semaglutide, tirzepatide,
-              and retatrutide side by side. Research-backed dosing, side effects, cost breakdowns, and tools.
+              44 compound profiles. 200+ clinical citations. 7 free tools. The most comprehensive peptide weight loss reference on the web.
             </p>
             <div className="mt-8 flex flex-wrap gap-3 max-w-4xl">
               <Link
@@ -64,8 +64,16 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
+
+          {/* Lead Magnet CTA — high in the page */}
+          <div className="mt-10 max-w-xl">
+            <LeadMagnetCTA variant="hero" utmSource="homepage-hero" />
+          </div>
         </div>
       </section>
+
+      {/* Trust Bar */}
+      <TrustBar />
 
       {/* GLP-1 Weight Loss Peptides — the sun */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -185,10 +193,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Newsletter — resource framing, not personal */}
+      {/* Lead Magnet CTA — fullwidth, replaces old newsletter */}
       <section className="border-t border-border">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 lg:px-8">
-          <NewsletterSignup />
+          <LeadMagnetCTA variant="fullwidth" utmSource="homepage-bottom" />
         </div>
       </section>
 

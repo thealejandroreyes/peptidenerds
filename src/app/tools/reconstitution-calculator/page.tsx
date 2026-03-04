@@ -98,6 +98,7 @@ export default function ReconstitutionCalculatorPage() {
   const [doseUnit, setDoseUnit] = useState<'mcg' | 'mg'>('mcg')
   const [dosesPerDay, setDosesPerDay] = useState('1')
   const [syringeSize, setSyringeSize] = useState<'100' | '50' | '30'>('100')
+  const [activePreset, setActivePreset] = useState<number | null>(null)
 
   const result = useMemo(() => {
     const peptide = parseFloat(peptideMg)
@@ -140,6 +141,11 @@ export default function ReconstitutionCalculatorPage() {
     setDoseValue(String(p.doseMcg))
     setDoseUnit('mcg')
     setDosesPerDay(String(p.frequency))
+    setActivePreset(index)
+    // Scroll to results after a brief delay for state to update
+    setTimeout(() => {
+      document.getElementById('results')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }, 100)
   }
 
   return (
@@ -159,13 +165,17 @@ export default function ReconstitutionCalculatorPage() {
 
       {/* Quick presets */}
       <div className="mt-6">
-        <p className="text-sm font-medium text-foreground">Common protocols</p>
+        <p className="text-sm font-medium text-foreground">Common protocols <span className="font-normal text-muted">(click to auto-fill)</span></p>
         <div className="mt-2 flex flex-wrap gap-2">
           {presets.map((p, i) => (
             <button
               key={i}
               onClick={() => applyPreset(i)}
-              className="rounded-full border border-border px-3 py-1.5 text-xs text-muted transition-colors hover:border-accent hover:text-accent"
+              className={`cursor-pointer rounded-full border px-3 py-1.5 text-xs font-medium transition-all ${
+                activePreset === i
+                  ? 'border-accent bg-accent text-white shadow-sm'
+                  : 'border-border bg-card text-muted shadow-sm hover:border-accent hover:bg-accent/5 hover:text-accent'
+              }`}
             >
               {p.label}
             </button>
@@ -182,7 +192,7 @@ export default function ReconstitutionCalculatorPage() {
               <input
                 type="number"
                 value={peptideMg}
-                onChange={(e) => setPeptideMg(e.target.value)}
+                onChange={(e) => { setPeptideMg(e.target.value); setActivePreset(null) }}
                 min="0"
                 step="0.5"
                 className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
@@ -212,7 +222,7 @@ export default function ReconstitutionCalculatorPage() {
               <input
                 type="number"
                 value={waterMl}
-                onChange={(e) => setWaterMl(e.target.value)}
+                onChange={(e) => { setWaterMl(e.target.value); setActivePreset(null) }}
                 min="0"
                 step="0.5"
                 className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
@@ -242,7 +252,7 @@ export default function ReconstitutionCalculatorPage() {
               <input
                 type="number"
                 value={doseValue}
-                onChange={(e) => setDoseValue(e.target.value)}
+                onChange={(e) => { setDoseValue(e.target.value); setActivePreset(null) }}
                 min="0"
                 step={doseUnit === 'mg' ? '0.01' : '10'}
                 className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
@@ -286,7 +296,7 @@ export default function ReconstitutionCalculatorPage() {
             <input
               type="number"
               value={dosesPerDay}
-              onChange={(e) => setDosesPerDay(e.target.value)}
+              onChange={(e) => { setDosesPerDay(e.target.value); setActivePreset(null) }}
               min="0.01"
               step="0.1"
               className="mt-1.5 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
@@ -312,7 +322,7 @@ export default function ReconstitutionCalculatorPage() {
 
       {/* Results */}
       {result && (
-        <div className="mt-6 rounded-xl border border-accent/20 bg-soft-sky/30 p-6">
+        <div id="results" className="mt-6 rounded-xl border border-accent/20 bg-soft-sky/30 p-6">
           <h2 className="text-lg text-foreground">Your results</h2>
           <div className="mt-4 flex flex-col gap-6 sm:flex-row">
             {/* Syringe visual */}
@@ -372,16 +382,17 @@ export default function ReconstitutionCalculatorPage() {
               <th>BAC Water</th>
               <th>Typical Dose</th>
               <th>Volume</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             {[
-              { name: 'Semaglutide', slug: 'semaglutide', vial: '5 mg', water: '2 mL', dose: '250 mcg', volume: '0.1 mL (10 units)' },
-              { name: 'Tirzepatide', slug: 'tirzepatide', vial: '10 mg', water: '2 mL', dose: '2.5 mg', volume: '0.5 mL (50 units)' },
-              { name: 'BPC-157', slug: 'bpc-157', vial: '5 mg', water: '2 mL', dose: '250 mcg', volume: '0.1 mL (10 units)' },
-              { name: 'Ipamorelin', slug: 'ipamorelin', vial: '5 mg', water: '2.5 mL', dose: '200 mcg', volume: '0.1 mL (10 units)' },
-              { name: 'TB-500', slug: 'tb-500', vial: '5 mg', water: '2 mL', dose: '2.5 mg', volume: '1.0 mL (100 units)' },
-              { name: 'CJC-1295', slug: 'cjc-1295', vial: '5 mg', water: '2.5 mL', dose: '100 mcg', volume: '0.05 mL (5 units)' },
+              { name: 'Semaglutide', slug: 'semaglutide', vial: '5 mg', water: '2 mL', dose: '250 mcg', volume: '0.1 mL (10 units)', presetIndex: 0 },
+              { name: 'Tirzepatide', slug: 'tirzepatide', vial: '10 mg', water: '2 mL', dose: '2.5 mg', volume: '0.5 mL (50 units)', presetIndex: 1 },
+              { name: 'BPC-157', slug: 'bpc-157', vial: '5 mg', water: '2 mL', dose: '250 mcg', volume: '0.1 mL (10 units)', presetIndex: 2 },
+              { name: 'Ipamorelin', slug: 'ipamorelin', vial: '5 mg', water: '2.5 mL', dose: '200 mcg', volume: '0.1 mL (10 units)', presetIndex: 3 },
+              { name: 'TB-500', slug: 'tb-500', vial: '5 mg', water: '2 mL', dose: '2.5 mg', volume: '1.0 mL (100 units)', presetIndex: 4 },
+              { name: 'CJC-1295', slug: 'cjc-1295', vial: '5 mg', water: '2.5 mL', dose: '100 mcg', volume: '0.05 mL (5 units)', presetIndex: 5 },
             ].map((row) => (
               <tr key={row.slug}>
                 <td><Link href={`/peptides/${row.slug}`} className="text-accent hover:text-accent-hover">{row.name}</Link></td>
@@ -389,6 +400,14 @@ export default function ReconstitutionCalculatorPage() {
                 <td>{row.water}</td>
                 <td>{row.dose}</td>
                 <td>{row.volume}</td>
+                <td>
+                  <button
+                    onClick={() => applyPreset(row.presetIndex)}
+                    className="whitespace-nowrap rounded-md bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent transition-colors hover:bg-accent hover:text-white"
+                  >
+                    Calculate
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>

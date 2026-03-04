@@ -52,12 +52,40 @@ export interface Peptide {
   stacksWith: string[]
 }
 
+export interface Citation {
+  authors: string
+  title: string
+  journal: string
+  year: number
+  pmid?: string
+  doi?: string
+  keyFinding: string
+}
+
+export interface VerdictBox {
+  peptide: string
+  heading: string
+  reasons: string[]
+}
+
+export type ComparisonCategory =
+  | 'glp1-weight-loss'
+  | 'healing-recovery'
+  | 'gh-secretagogue'
+  | 'metabolic'
+  | 'brand-vs-brand'
+  | 'anti-aging'
+  | 'nootropic'
+  | 'cross-category'
+  | 'sexual-health'
+
 export interface ComparisonDimension {
   name: string
   peptideAScore: string
   peptideBScore: string
   peptideCScore?: string
   notes: string
+  winner?: 'A' | 'B' | 'C' | 'tie'
 }
 
 export interface Comparison {
@@ -69,6 +97,14 @@ export interface Comparison {
   metaDescription: string
   winner?: string
   dimensions: ComparisonDimension[]
+  keyTakeaway: string
+  lastUpdated: string
+  category: ComparisonCategory
+  verdicts: VerdictBox[]
+  citations: Citation[]
+  faqs: FAQ[]
+  relatedComparisons: string[]
+  hasEditorialContent: boolean
 }
 
 export interface Goal {

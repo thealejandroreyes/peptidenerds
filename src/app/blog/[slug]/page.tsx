@@ -4,7 +4,10 @@ import { notFound } from 'next/navigation'
 import { getAllSlugs, getPost, getRelatedPosts } from '@/lib/blog'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { AuthorBio } from '@/components/AuthorBio'
-import { NewsletterSignup } from '@/components/NewsletterSignup'
+import { BlogContentWithCTA } from '@/components/BlogContentWithCTA'
+import { LeadMagnetCTA } from '@/components/LeadMagnetCTA'
+import { ReadingProgress } from '@/components/ReadingProgress'
+import { SidebarNewsletter } from '@/components/SidebarNewsletter'
 import { ArticleSchema, FAQSchema } from '@/components/SchemaMarkup'
 import { formatDate } from '@/lib/utils'
 
@@ -81,6 +84,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <>
+      <ReadingProgress />
       <ArticleSchema
         title={post.title}
         description={post.meta_description}
@@ -90,80 +94,89 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       />
       {faqs.length > 0 && <FAQSchema faqs={faqs} />}
 
-      <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
-        <Breadcrumbs
-          items={[
-            { name: 'Blog', href: '/blog' },
-            { name: post.title, href: `/blog/${post.slug}` },
-          ]}
-        />
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_300px] xl:gap-12">
+          {/* Main content */}
+          <article className="max-w-3xl">
+            <Breadcrumbs
+              items={[
+                { name: 'Blog', href: '/blog' },
+                { name: post.title, href: `/blog/${post.slug}` },
+              ]}
+            />
 
-        {/* Meta bar */}
-        <div className="flex flex-wrap items-center gap-3 text-xs text-muted">
-          <time dateTime={post.date}>{formatDate(post.date)}</time>
-          {post.pillar && (
-            <>
-              <span className="text-border">&middot;</span>
-              {pillarRoutes[post.pillar] ? (
-                <Link
-                  href={pillarRoutes[post.pillar]}
-                  className="rounded-full border border-accent/20 bg-soft-sky px-2 py-0.5 text-accent hover:bg-accent/10 transition-colors"
-                >
-                  {pillarLabels[post.pillar] || post.pillar}
-                </Link>
-              ) : (
-                <span className="rounded-full border border-accent/20 bg-soft-sky px-2 py-0.5 text-accent">
-                  {pillarLabels[post.pillar] || post.pillar}
-                </span>
+            {/* Meta bar */}
+            <div className="flex flex-wrap items-center gap-3 text-xs text-muted">
+              <time dateTime={post.date}>{formatDate(post.date)}</time>
+              {post.pillar && (
+                <>
+                  <span className="text-border">&middot;</span>
+                  {pillarRoutes[post.pillar] ? (
+                    <Link
+                      href={pillarRoutes[post.pillar]}
+                      className="rounded-full border border-accent/20 bg-soft-sky px-2 py-0.5 text-accent hover:bg-accent/10 transition-colors"
+                    >
+                      {pillarLabels[post.pillar] || post.pillar}
+                    </Link>
+                  ) : (
+                    <span className="rounded-full border border-accent/20 bg-soft-sky px-2 py-0.5 text-accent">
+                      {pillarLabels[post.pillar] || post.pillar}
+                    </span>
+                  )}
+                </>
               )}
-            </>
-          )}
-          <span className="text-border">&middot;</span>
-          <span>{post.reading_time}</span>
-        </div>
-
-        {/* Title */}
-        <h1 className="mt-4 text-3xl font-light leading-tight text-foreground sm:text-4xl">
-          {post.title}
-        </h1>
-
-        {/* Author */}
-        <div className="mt-6">
-          <AuthorBio />
-        </div>
-
-        {/* Body */}
-        <div
-          className="prose-custom mt-10"
-          dangerouslySetInnerHTML={{ __html: post.htmlContent }}
-        />
-
-        {/* Newsletter CTA */}
-        <div className="mt-12">
-          <NewsletterSignup />
-        </div>
-
-        {/* Related posts */}
-        {related.length > 0 && (
-          <div className="mt-12">
-            <h2 className="text-xl text-foreground">Related articles</h2>
-            <div className="mt-4 grid gap-4">
-              {related.map((r) => (
-                <Link
-                  key={r.slug}
-                  href={`/blog/${r.slug}`}
-                  className="block rounded-lg border border-border p-4 transition-colors hover:border-accent hover:bg-card"
-                >
-                  <p className="font-medium text-foreground">{r.title}</p>
-                  <p className="mt-1 text-xs text-muted">
-                    {formatDate(r.date)} &middot; {r.reading_time}
-                  </p>
-                </Link>
-              ))}
+              <span className="text-border">&middot;</span>
+              <span>{post.reading_time}</span>
             </div>
-          </div>
-        )}
-      </article>
+
+            {/* Title */}
+            <h1 className="mt-4 text-3xl font-light leading-tight text-foreground sm:text-4xl">
+              {post.title}
+            </h1>
+
+            {/* Author */}
+            <div className="mt-6">
+              <AuthorBio />
+            </div>
+
+            {/* Body with inline CTA */}
+            <BlogContentWithCTA htmlContent={post.htmlContent} />
+
+            {/* Lead Magnet CTA — bottom of article */}
+            <div className="mt-12">
+              <LeadMagnetCTA variant="inline" utmSource={`blog-${post.slug}`} />
+            </div>
+
+            {/* Related posts */}
+            {related.length > 0 && (
+              <div className="mt-12">
+                <h2 className="text-xl text-foreground">Related articles</h2>
+                <div className="mt-4 grid gap-4">
+                  {related.map((r) => (
+                    <Link
+                      key={r.slug}
+                      href={`/blog/${r.slug}`}
+                      className="block rounded-lg border border-border p-4 transition-colors hover:border-accent hover:bg-card"
+                    >
+                      <p className="font-medium text-foreground">{r.title}</p>
+                      <p className="mt-1 text-xs text-muted">
+                        {formatDate(r.date)} &middot; {r.reading_time}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </article>
+
+          {/* Sidebar */}
+          <aside className="hidden lg:block">
+            <div className="sticky top-24 space-y-6">
+              <SidebarNewsletter utmSource={`blog-sidebar-${post.slug}`} />
+            </div>
+          </aside>
+        </div>
+      </div>
     </>
   )
 }

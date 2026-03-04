@@ -379,12 +379,43 @@ Each comparison page follows the same structure:
 - Who each peptide might be better suited for
 - Sources and citations
 
-Browse all comparisons:
+Browse all comparisons on our [comparison hub](/compare), or jump to specific matchups:
+
+**Weight Loss / GLP-1:**
 - [Semaglutide vs Tirzepatide](/compare/semaglutide-vs-tirzepatide)
-- [BPC-157 vs TB-500](/compare/bpc-157-vs-tb-500)
+- [Semaglutide vs Retatrutide](/compare/semaglutide-vs-retatrutide)
+- [Tirzepatide vs Retatrutide](/compare/tirzepatide-vs-retatrutide)
+- [Semaglutide vs Liraglutide](/compare/semaglutide-vs-liraglutide)
+- [Semaglutide vs Tirzepatide vs Retatrutide](/compare/semaglutide-vs-tirzepatide-vs-retatrutide)
+- [CagriSema vs Tirzepatide](/compare/cagrilintide-semaglutide-vs-tirzepatide)
+- [AOD-9604 vs Semaglutide](/compare/aod-9604-vs-semaglutide)
+- [Semaglutide vs Tesofensine](/compare/semaglutide-vs-tesofensine)
+- [Oral vs Injectable Semaglutide](/compare/oral-semaglutide-vs-injectable)
+- [Compounded vs Brand-Name Semaglutide](/compare/compounded-vs-brand-semaglutide)
+
+**Brand vs Brand:**
 - [Ozempic vs Wegovy](/compare/ozempic-vs-wegovy)
 - [Mounjaro vs Zepbound](/compare/mounjaro-vs-zepbound)
-- [Oral Semaglutide vs Injectable](/compare/oral-semaglutide-vs-injectable)
+
+**Healing & Recovery:**
+- [BPC-157 vs TB-500](/compare/bpc-157-vs-tb-500)
+- [BPC-157 vs GHK-Cu](/compare/bpc-157-vs-ghk-cu)
+- [TB-500 vs Thymosin Beta-4](/compare/tb-500-vs-thymosin-beta-4)
+- [BPC-157 vs GHK-Cu vs TB-500](/compare/pentadecapeptide-bpc-157-vs-ghk-cu-vs-tb-500)
+
+**Growth Hormone:**
+- [Ipamorelin vs CJC-1295](/compare/ipamorelin-vs-cjc-1295)
+- [Ipamorelin/CJC-1295 vs MK-677](/compare/ipamorelin-cjc-1295-vs-mk-677)
+- [Tesamorelin vs Ipamorelin](/compare/tesamorelin-vs-ipamorelin)
+- [Sermorelin vs Ipamorelin](/compare/sermorelin-vs-ipamorelin)
+- [GHRP-2 vs GHRP-6 vs Ipamorelin](/compare/ghrp-2-vs-ghrp-6-vs-ipamorelin)
+
+**Anti-Aging & Specialty:**
+- [GHK-Cu vs Epitalon](/compare/ghk-cu-vs-epitalon)
+- [GHK-Cu vs BPC-157](/compare/ghk-cu-vs-bpc-157)
+- [Semax vs Selank](/compare/semax-vs-selank)
+- [Melanotan II vs PT-141](/compare/melanotan-ii-vs-pt-141)
+- [MOTS-c vs AOD-9604](/compare/mots-c-vs-aod-9604)
 
 ### Individual Peptide Pages
 

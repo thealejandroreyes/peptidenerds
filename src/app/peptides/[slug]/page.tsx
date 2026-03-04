@@ -8,8 +8,12 @@ import { getStacksByPeptide } from '@/data/stacks'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { FAQAccordion } from '@/components/FAQAccordion'
 import { AuthorBio } from '@/components/AuthorBio'
-import { NewsletterSignup } from '@/components/NewsletterSignup'
+import { InlineContentCTA } from '@/components/InlineContentCTA'
+import { LeadMagnetCTA } from '@/components/LeadMagnetCTA'
 import { MedicalWebPageSchema, FAQSchema } from '@/components/SchemaMarkup'
+import { ReadingProgress } from '@/components/ReadingProgress'
+import { WhereToGet } from '@/components/WhereToGet'
+import { RecommendedSupplies } from '@/components/RecommendedSupplies'
 import { getCategoryLabel, getCategoryColor, getFdaStatusLabel, getFdaStatusColor } from '@/lib/utils'
 
 export function generateStaticParams() {
@@ -41,6 +45,7 @@ export default async function PeptideDetailPage({ params }: { params: Promise<{ 
 
   return (
     <>
+      <ReadingProgress />
       <MedicalWebPageSchema
         title={peptide.name}
         description={peptide.description}
@@ -166,6 +171,12 @@ export default async function PeptideDetailPage({ params }: { params: Promise<{ 
           </div>
         </section>
 
+        {/* Recommended Supplies — after dosing */}
+        <RecommendedSupplies />
+
+        {/* Inline CTA — after dosing section */}
+        <InlineContentCTA type="compound" compoundName={peptide.name} />
+
         {/* Research */}
         {peptide.research.keyStudies.length > 0 && (
           <section className="mt-10">
@@ -215,6 +226,11 @@ export default async function PeptideDetailPage({ params }: { params: Promise<{ 
           </section>
         )}
 
+        {/* Where to Get — only for FDA-approved compounds */}
+        {peptide.fdaStatus === 'approved' && (
+          <WhereToGet compoundSlug={peptide.slug} compoundName={peptide.name} />
+        )}
+
         {/* Drug Interactions */}
         {peptide.drugInteractions && (
           <section className="mt-10">
@@ -230,6 +246,9 @@ export default async function PeptideDetailPage({ params }: { params: Promise<{ 
             <div className="mt-3 text-sm text-muted leading-relaxed whitespace-pre-line">{peptide.populationNotes}</div>
           </section>
         )}
+
+        {/* Second Inline CTA — before FAQ */}
+        <InlineContentCTA type="compound" compoundName={peptide.name} />
 
         {/* FAQ */}
         {peptide.faq.length > 0 && (
@@ -334,9 +353,9 @@ export default async function PeptideDetailPage({ params }: { params: Promise<{ 
           </section>
         )}
 
-        {/* Newsletter */}
+        {/* Lead Magnet CTA — replaces old newsletter */}
         <div className="mt-8">
-          <NewsletterSignup />
+          <LeadMagnetCTA variant="inline" utmSource={`compound-${peptide.slug}`} />
         </div>
 
         {/* Medical Disclaimer */}

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { CalculatorEmailGate } from '@/components/CalculatorEmailGate'
 
 interface CalcResult {
   concentration: number
@@ -170,6 +171,7 @@ export default function DosageCalculatorPage() {
               <p className="mt-1 text-xl font-bold text-foreground">{result.totalDoses} doses</p>
             </div>
           </div>
+          <CalculatorEmailGate />
         </div>
       )}
 

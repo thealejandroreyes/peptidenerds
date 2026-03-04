@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
-import { NewsletterSignup } from '@/components/NewsletterSignup'
 import { SiteStats } from '@/components/SiteStats'
 import { GoalFinder } from '@/components/GoalFinder'
 import { FAQAccordion } from '@/components/FAQAccordion'
+import { LeadMagnetCTA } from '@/components/LeadMagnetCTA'
 import { ArticleSchema, FAQSchema } from '@/components/SchemaMarkup'
 
 export const metadata: Metadata = {
@@ -138,6 +138,11 @@ export default function StartHerePage() {
         {/* Site Stats */}
         <div className="mt-12">
           <SiteStats />
+        </div>
+
+        {/* Lead Magnet CTA — after stats */}
+        <div className="mt-10">
+          <LeadMagnetCTA variant="inline" utmSource="start-here-top" />
         </div>
 
         {/* Goal Finder */}
@@ -298,9 +303,9 @@ export default function StartHerePage() {
           </div>
         </section>
 
-        {/* Newsletter */}
+        {/* Lead Magnet CTA — fullwidth, replaces old newsletter */}
         <div className="mt-12">
-          <NewsletterSignup />
+          <LeadMagnetCTA variant="fullwidth" utmSource="start-here-bottom" />
         </div>
       </div>
     </>

@@ -7,6 +7,7 @@ import { QuizOption } from './components/quiz-option'
 import { QuizProgress } from './components/quiz-progress'
 import { QuizResults } from './components/quiz-results'
 import { getRecommendation } from '@/data/quiz-recommendations'
+import { isSubscribed, markSubscribed, markCTAInteraction } from '@/lib/subscriber-state'
 
 const GOALS = [
   { value: 'weight-loss', label: 'Weight Loss', description: 'GLP-1 agonists and metabolic peptides' },
@@ -46,6 +47,10 @@ export function PeptideFinderQuiz() {
   const [weightToLose, setWeightToLose] = useState<string | null>(null)
   const [direction, setDirection] = useState<'forward' | 'backward'>('forward')
   const [showResults, setShowResults] = useState(false)
+  const [showEmailGate, setShowEmailGate] = useState(false)
+  const [gateEmail, setGateEmail] = useState('')
+  const [gateStatus, setGateStatus] = useState<'idle' | 'loading' | 'done'>('idle')
+  const [skipGate, setSkipGate] = useState(false)
 
   const needsWeightStep = goal === 'weight-loss'
   const totalSteps = needsWeightStep ? 4 : 3
@@ -82,10 +87,43 @@ export function PeptideFinderQuiz() {
   const handleComplete = useCallback(
     (g: string, l: string, i: string, w?: string) => {
       updateUrl(g, l, i, w)
-      setShowResults(true)
+      // Show email gate unless already subscribed
+      if (isSubscribed()) {
+        setShowResults(true)
+      } else {
+        setShowEmailGate(true)
+      }
     },
     [updateUrl]
   )
+
+  async function handleGateSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    if (!gateEmail) return
+    setGateStatus('loading')
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: gateEmail, utm_source: 'quiz-results-gate' }),
+      })
+      if (res.ok) {
+        markSubscribed()
+        markCTAInteraction()
+      }
+    } catch {
+      // Continue regardless
+    }
+    setGateStatus('done')
+    setShowEmailGate(false)
+    setShowResults(true)
+  }
+
+  function handleSkipGate() {
+    setSkipGate(true)
+    setShowEmailGate(false)
+    setShowResults(true)
+  }
 
   const selectGoal = (value: string) => {
     setGoal(value)
@@ -143,6 +181,41 @@ export function PeptideFinderQuiz() {
     setShowResults(false)
     setDirection('forward')
     router.replace('/tools/peptide-finder', { scroll: false })
+  }
+
+  // Email gate between quiz completion and results
+  if (showEmailGate && !skipGate) {
+    return (
+      <div className="mx-auto max-w-md text-center">
+        <h2 className="text-xl">Your results are ready</h2>
+        <p className="mt-2 text-sm text-muted">
+          Enter your email to get your personalized recommendation plus the free Peptide Starter Kit.
+        </p>
+        <form onSubmit={handleGateSubmit} className="mt-4 flex gap-2">
+          <input
+            type="email"
+            value={gateEmail}
+            onChange={(e) => setGateEmail(e.target.value)}
+            placeholder="you@email.com"
+            required
+            className="flex-1 rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted/60 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+          />
+          <button
+            type="submit"
+            disabled={gateStatus === 'loading'}
+            className="rounded-full bg-cta px-5 py-2.5 text-sm font-medium text-cta-foreground transition-colors hover:bg-cta-hover disabled:opacity-50"
+          >
+            {gateStatus === 'loading' ? '...' : 'Show My Results'}
+          </button>
+        </form>
+        <button
+          onClick={handleSkipGate}
+          className="mt-3 text-xs text-muted underline transition-colors hover:text-foreground"
+        >
+          Skip — just show me the results
+        </button>
+      </div>
+    )
   }
 
   if (showResults && goal && level && injection) {

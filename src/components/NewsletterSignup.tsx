@@ -1,10 +1,20 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { isSubscribed, markSubscribed, markCTAInteraction } from '@/lib/subscriber-state'
 
-export function NewsletterSignup() {
+interface NewsletterSignupProps {
+  utmSource?: string
+}
+
+export function NewsletterSignup({ utmSource = 'newsletter-generic' }: NewsletterSignupProps) {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [alreadySubscribed, setAlreadySubscribed] = useState(false)
+
+  useEffect(() => {
+    setAlreadySubscribed(isSubscribed())
+  }, [])
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -16,18 +26,28 @@ export function NewsletterSignup() {
       const res = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, utm_source: utmSource }),
       })
 
       if (res.ok) {
         setStatus('success')
         setEmail('')
+        markSubscribed()
+        markCTAInteraction()
       } else {
         setStatus('error')
       }
     } catch {
       setStatus('error')
     }
+  }
+
+  if (alreadySubscribed) {
+    return (
+      <div className="rounded-xl bg-primary p-6">
+        <p className="text-sm text-white/70">You are already subscribed. Welcome aboard.</p>
+      </div>
+    )
   }
 
   return (
