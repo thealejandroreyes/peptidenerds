@@ -10,6 +10,8 @@
     "indexnow": "node scripts/indexnow-submit.mjs"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.9.0",
+    "@supabase/supabase-js": "^2.98.0",
     "@vercel/analytics": "^1.6.1",
     "gray-matter": "^4.0.3",
     "marked": "^17.0.3",
